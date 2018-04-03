@@ -13,7 +13,7 @@ namespace MMS
 {
     public partial class FrmLogin : Form
     {
-        static string strConn = "Server=localhost;Database=test;Uid=root;Pwd=123;";
+        static string strConn = "Server=umj64-004.cafe24.com;Database=admin1981;Uid=admin1981;Pwd=admindb@1981;";
         MySqlConnection conn = new MySqlConnection(strConn);
 
 
@@ -48,17 +48,14 @@ namespace MMS
             //check user name is correct 
             else
             {
-                if ("test" != id)
+                DataSet oDs = SelectData(id);
+                if( oDs.Tables[0].Rows.Count > 0 )
                 {
-                    MessageBox.Show("사용자가 없습니다.");
-                    ClearTexts();
-                    return false;
-                }
-                else
-                {
-                    if ("1111" != pass)
+                    DataRow oDr = oDs.Tables[0].Rows[0];
+                    if (oDr["PASSWORD"].ToString() != pass)
                     {
                         MessageBox.Show("비밀번호가 맞지 않습니다.");
+                        textBox2.Text = "";
                         return false;
                     }
                     else
@@ -66,11 +63,50 @@ namespace MMS
                         return true;
                     }
                 }
+                else
+                {
+                    MessageBox.Show("사용자가 없습니다.");
+                    ClearTexts();
+                    return false;
+                }
             }
         }
+
+        private DataSet SelectData(string id)
+        {
+            DataSet ds = null;
+            try
+            {
+                ds = new DataSet();
+                string sql = "SELECT USER_ID, USER_NAME, PASSWORD FROM TB_USERS WHERE USER_ID ='" + id + "' ";
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds, "TB_USERS");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+            return ds;
+        }
+
+
+
         private void ClearTexts() {
             textBox1.Text = "";
             textBox2.Text = "";
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                string id = textBox1.Text;
+                string pass = textBox2.Text;
+                if (IsLoggedIn(id, pass))
+                {
+                    DialogResult = DialogResult.OK;
+                }
+            }
         }
     }
 }

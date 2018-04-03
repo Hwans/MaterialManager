@@ -37,29 +37,33 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.Azure;
             this.textBox1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(36, 69);
+            this.textBox1.Location = new System.Drawing.Point(41, 86);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 32);
+            this.textBox1.Size = new System.Drawing.Size(190, 38);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.Azure;
             this.textBox2.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(36, 124);
+            this.textBox2.Location = new System.Drawing.Point(41, 155);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(167, 32);
+            this.textBox2.Size = new System.Drawing.Size(190, 38);
             this.textBox2.TabIndex = 1;
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.LightBlue;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(62, 198);
+            this.btnLogin.Location = new System.Drawing.Point(71, 248);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(114, 40);
+            this.btnLogin.Size = new System.Drawing.Size(130, 50);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -67,14 +71,15 @@
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(245, 296);
+            this.ClientSize = new System.Drawing.Size(280, 370);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOGIN";
