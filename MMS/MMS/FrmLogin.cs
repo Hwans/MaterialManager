@@ -16,6 +16,7 @@ namespace MMS
         static string strConn = "Server=localhost;Database=test;Uid=root;Pwd=123;";
         MySqlConnection conn = new MySqlConnection(strConn);
 
+
         public FrmLogin()
         {
             InitializeComponent();
