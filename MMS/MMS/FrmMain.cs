@@ -41,6 +41,12 @@ namespace MMS
             frmProduct.Show();
         }
 
-
+        private void OrderItemMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmOrderList frmOrderList = new FrmOrderList();
+            frmOrderList.MdiParent = this;
+            frmOrderList.WindowState = FormWindowState.Maximized;
+            frmOrderList.Show();
+        }
     }
 }
