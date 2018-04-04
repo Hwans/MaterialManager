@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.sDate = new System.Windows.Forms.DateTimePicker();
-            this.eDate = new System.Windows.Forms.DateTimePicker();
-            this.sp1 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnDelelte = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelelte = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.sp1 = new System.Windows.Forms.Label();
+            this.eDate = new System.Windows.Forms.DateTimePicker();
+            this.sDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
             this.orderGrid = new SourceGrid2.Grid();
             this.pnlTop.SuspendLayout();
             this.SuspendLayout();
@@ -60,70 +60,15 @@
             this.pnlTop.Size = new System.Drawing.Size(1006, 56);
             this.pnlTop.TabIndex = 0;
             // 
-            // lblDate
+            // btnAdd
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(12, 23);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(37, 15);
-            this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "날짜";
-            // 
-            // sDate
-            // 
-            this.sDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.sDate.Location = new System.Drawing.Point(55, 16);
-            this.sDate.Name = "sDate";
-            this.sDate.Size = new System.Drawing.Size(125, 25);
-            this.sDate.TabIndex = 1;
-            // 
-            // eDate
-            // 
-            this.eDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.eDate.Location = new System.Drawing.Point(212, 16);
-            this.eDate.Name = "eDate";
-            this.eDate.Size = new System.Drawing.Size(125, 25);
-            this.eDate.TabIndex = 2;
-            // 
-            // sp1
-            // 
-            this.sp1.AutoSize = true;
-            this.sp1.Location = new System.Drawing.Point(188, 23);
-            this.sp1.Name = "sp1";
-            this.sp1.Size = new System.Drawing.Size(18, 15);
-            this.sp1.TabIndex = 3;
-            this.sp1.Text = "~";
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(914, 14);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(84, 32);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "종료";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnDelelte
-            // 
-            this.btnDelelte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelelte.Location = new System.Drawing.Point(824, 14);
-            this.btnDelelte.Name = "btnDelelte";
-            this.btnDelelte.Size = new System.Drawing.Size(84, 32);
-            this.btnDelelte.TabIndex = 4;
-            this.btnDelelte.Text = "삭제";
-            this.btnDelelte.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(734, 14);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 32);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "저장";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(463, 14);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(146, 32);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "신규등록";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSelect
             // 
@@ -136,14 +81,70 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // btnAdd
+            // btnSave
             // 
-            this.btnAdd.Location = new System.Drawing.Point(463, 14);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(146, 32);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "신규등록";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(734, 14);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(84, 32);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "저장";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnDelelte
+            // 
+            this.btnDelelte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelelte.Location = new System.Drawing.Point(824, 14);
+            this.btnDelelte.Name = "btnDelelte";
+            this.btnDelelte.Size = new System.Drawing.Size(84, 32);
+            this.btnDelelte.TabIndex = 4;
+            this.btnDelelte.Text = "삭제";
+            this.btnDelelte.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Location = new System.Drawing.Point(914, 14);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(84, 32);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "종료";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // sp1
+            // 
+            this.sp1.AutoSize = true;
+            this.sp1.Location = new System.Drawing.Point(188, 23);
+            this.sp1.Name = "sp1";
+            this.sp1.Size = new System.Drawing.Size(18, 15);
+            this.sp1.TabIndex = 3;
+            this.sp1.Text = "~";
+            // 
+            // eDate
+            // 
+            this.eDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.eDate.Location = new System.Drawing.Point(212, 16);
+            this.eDate.Name = "eDate";
+            this.eDate.Size = new System.Drawing.Size(125, 25);
+            this.eDate.TabIndex = 2;
+            // 
+            // sDate
+            // 
+            this.sDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.sDate.Location = new System.Drawing.Point(55, 16);
+            this.sDate.Name = "sDate";
+            this.sDate.Size = new System.Drawing.Size(125, 25);
+            this.sDate.TabIndex = 1;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(12, 23);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(37, 15);
+            this.lblDate.TabIndex = 0;
+            this.lblDate.Text = "날짜";
             // 
             // orderGrid
             // 

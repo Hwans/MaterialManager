@@ -25,6 +25,7 @@ namespace MMS
             orderGrid.ColumnsCount = 8;
             orderGrid.FixedRows = 1;
             orderGrid.Rows.Insert(0);
+            orderGrid.Columns[1].Width = 480;
             orderGrid[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("No");
             orderGrid[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("상품명");
             orderGrid[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("옵션명");
@@ -33,18 +34,6 @@ namespace MMS
             orderGrid[0, 5] = new SourceGrid2.Cells.Real.ColumnHeader("비고");
             orderGrid[0, 6] = new SourceGrid2.Cells.Real.ColumnHeader("발주요청일");
             orderGrid[0, 7] = new SourceGrid2.Cells.Real.ColumnHeader("발주요청자");
-
-            /*
-             * 순번
-             * 상품명
-             * 옵션명
-             * 발주상태
-             * 중요도
-             * 비고
-             * 발주요청일
-             * 발주요청자
-             */
-
 
             for (int r = 1; r < 10; r++)
             {
@@ -85,6 +74,12 @@ namespace MMS
             {
                 throw ex;
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmItemList frmItemList = new FrmItemList();
+            frmItemList.Show();
         }
     }
 }
