@@ -24,8 +24,8 @@ namespace MMS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string id = textBox1.Text;
-            string pass = textBox2.Text;
+            string id = txtID.Text;
+            string pass = txtPWD.Text;
             if (IsLoggedIn(id, pass))
             {
                 DialogResult = DialogResult.OK;
@@ -92,8 +92,29 @@ namespace MMS
 
 
         private void ClearTexts() {
-            textBox1.Text = "";
-            textBox2.Text = "";
+            txtID.Text = "";
+            txtPWD.Text = "";
+        }
+
+        private void txtID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPWD.Focus();
+            }
+        }
+
+        private void txtPWD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string id = txtID.Text;
+                string pass = txtPWD.Text;
+                if (IsLoggedIn(id, pass))
+                {
+                    DialogResult = DialogResult.OK;
+                }
+            }
         }
 
         private void textBox2_KeyDown(object sender, KeyEventArgs e)

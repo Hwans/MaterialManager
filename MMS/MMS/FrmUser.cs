@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace MMS
 {
-    public partial class FrmProduct : Form
+    public partial class FrmUser : Form
     {
-        public FrmProduct()
+        public FrmUser()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FrmUser_Load(object sender, EventArgs e)
         {
             grid1.BorderStyle = BorderStyle.FixedSingle;
             grid1.ColumnsCount = 3;
+            grid1.Columns[1].Width = 240;
             grid1.FixedRows = 1;
             grid1.Rows.Insert(0);
             grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("String");
@@ -35,6 +36,7 @@ namespace MMS
                   DateTime.Today, typeof(DateTime));
                 grid1[r, 2] = new SourceGrid2.Cells.Real.CheckBox(true);
             }
+            //grid1.AutoSizeAll();
         }
     }
 }
