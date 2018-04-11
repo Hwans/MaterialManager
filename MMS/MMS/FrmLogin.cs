@@ -55,7 +55,7 @@ namespace MMS
                     if (oDr["PASSWORD"].ToString() != pass)
                     {
                         MessageBox.Show("비밀번호가 맞지 않습니다.");
-                        textBox2.Text = "";
+                        txtPWD.Text = "";
                         return false;
                     }
                     else
@@ -121,8 +121,8 @@ namespace MMS
         {
             if(e.KeyCode == Keys.Enter)
             {
-                string id = textBox1.Text;
-                string pass = textBox2.Text;
+                string id = txtID.Text;
+                string pass = txtPWD.Text;
                 if (IsLoggedIn(id, pass))
                 {
                     DialogResult = DialogResult.OK;
