@@ -28,73 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelelte = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.sp1 = new System.Windows.Forms.Label();
+            this.eDate = new System.Windows.Forms.DateTimePicker();
+            this.sDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
             this.grid1 = new SourceGrid2.Grid();
-            this.panel1.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlTop
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 56);
-            this.panel1.TabIndex = 0;
+            this.pnlTop.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnlTop.Controls.Add(this.btnAdd);
+            this.pnlTop.Controls.Add(this.btnSelect);
+            this.pnlTop.Controls.Add(this.btnSave);
+            this.pnlTop.Controls.Add(this.btnDelelte);
+            this.pnlTop.Controls.Add(this.btnExit);
+            this.pnlTop.Controls.Add(this.sp1);
+            this.pnlTop.Controls.Add(this.eDate);
+            this.pnlTop.Controls.Add(this.sDate);
+            this.pnlTop.Controls.Add(this.lblDate);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(1008, 45);
+            this.pnlTop.TabIndex = 1;
             // 
-            // button3
+            // btnAdd
             // 
-            this.button3.Location = new System.Drawing.Point(631, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button2";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(405, 11);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(128, 26);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "신규등록";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSelect
             // 
-            this.button2.Location = new System.Drawing.Point(712, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelect.Location = new System.Drawing.Point(692, 11);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(74, 26);
+            this.btnSelect.TabIndex = 4;
+            this.btnSelect.Text = "조회";
+            this.btnSelect.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Location = new System.Drawing.Point(169, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(770, 11);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(74, 26);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "저장";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // btnDelelte
             // 
-            this.textBox1.Location = new System.Drawing.Point(54, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 1;
+            this.btnDelelte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelelte.Location = new System.Drawing.Point(849, 11);
+            this.btnDelelte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelelte.Name = "btnDelelte";
+            this.btnDelelte.Size = new System.Drawing.Size(74, 26);
+            this.btnDelelte.TabIndex = 4;
+            this.btnDelelte.Text = "삭제";
+            this.btnDelelte.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnExit
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Location = new System.Drawing.Point(928, 11);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(74, 26);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "종료";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // sp1
+            // 
+            this.sp1.AutoSize = true;
+            this.sp1.Location = new System.Drawing.Point(164, 18);
+            this.sp1.Name = "sp1";
+            this.sp1.Size = new System.Drawing.Size(14, 12);
+            this.sp1.TabIndex = 3;
+            this.sp1.Text = "~";
+            // 
+            // eDate
+            // 
+            this.eDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.eDate.Location = new System.Drawing.Point(186, 13);
+            this.eDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eDate.Name = "eDate";
+            this.eDate.Size = new System.Drawing.Size(110, 21);
+            this.eDate.TabIndex = 2;
+            // 
+            // sDate
+            // 
+            this.sDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.sDate.Location = new System.Drawing.Point(48, 13);
+            this.sDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sDate.Name = "sDate";
+            this.sDate.Size = new System.Drawing.Size(110, 21);
+            this.sDate.TabIndex = 1;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(10, 18);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(29, 12);
+            this.lblDate.TabIndex = 0;
+            this.lblDate.Text = "날짜";
             // 
             // grid1
             // 
@@ -107,9 +162,9 @@
             this.grid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid1.FocusStyle = SourceGrid2.FocusStyle.None;
             this.grid1.GridToolTipActive = true;
-            this.grid1.Location = new System.Drawing.Point(0, 56);
+            this.grid1.Location = new System.Drawing.Point(0, 45);
             this.grid1.Name = "grid1";
-            this.grid1.Size = new System.Drawing.Size(800, 394);
+            this.grid1.Size = new System.Drawing.Size(1008, 396);
             this.grid1.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
             | SourceGrid2.GridSpecialKeys.Ctrl_X) 
             | SourceGrid2.GridSpecialKeys.Delete) 
@@ -118,32 +173,36 @@
             | SourceGrid2.GridSpecialKeys.PageDownUp) 
             | SourceGrid2.GridSpecialKeys.Enter) 
             | SourceGrid2.GridSpecialKeys.Escape)));
-            this.grid1.TabIndex = 1;
+            this.grid1.TabIndex = 2;
             // 
-            // Form1
+            // FrmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1008, 441);
             this.Controls.Add(this.grid1);
-            this.Controls.Add(this.panel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.pnlTop);
+            this.Name = "FrmProduct";
+            this.Text = "발주내역";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlTop.ResumeLayout(false);
+            this.pnlTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDelelte;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label sp1;
+        private System.Windows.Forms.DateTimePicker eDate;
+        private System.Windows.Forms.DateTimePicker sDate;
+        private System.Windows.Forms.Label lblDate;
         private SourceGrid2.Grid grid1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
     }
 }

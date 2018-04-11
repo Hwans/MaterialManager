@@ -89,8 +89,6 @@ namespace MMS
             return ds;
         }
 
-
-
         private void ClearTexts() {
             txtID.Text = "";
             txtPWD.Text = "";
@@ -107,19 +105,6 @@ namespace MMS
         private void txtPWD_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
-                string id = txtID.Text;
-                string pass = txtPWD.Text;
-                if (IsLoggedIn(id, pass))
-                {
-                    DialogResult = DialogResult.OK;
-                }
-            }
-        }
-
-        private void textBox2_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
             {
                 string id = txtID.Text;
                 string pass = txtPWD.Text;

@@ -42,7 +42,7 @@ namespace MMS
                 orderGrid[r, 1] = new SourceGrid2.Cells.Real.Cell(DateTime.Today, typeof(DateTime));
                 orderGrid[r, 2] = new SourceGrid2.Cells.Real.CheckBox(true);
             }
-            orderGrid.AutoSizeAll();
+            //orderGrid.AutoSizeAll();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
