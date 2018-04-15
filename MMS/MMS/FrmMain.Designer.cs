@@ -38,6 +38,9 @@
             this.CompanyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SystemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabForms = new System.Windows.Forms.TabControl();
+            this.userMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.codeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +55,8 @@
             this.SystemMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(914, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,20 +66,20 @@
             this.ProductAddMenuItem,
             this.ProductAddFileMenuItem});
             this.ProductMenuItem.Name = "ProductMenuItem";
-            this.ProductMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.ProductMenuItem.Size = new System.Drawing.Size(81, 24);
             this.ProductMenuItem.Text = "상품관리";
             // 
             // ProductAddMenuItem
             // 
             this.ProductAddMenuItem.Name = "ProductAddMenuItem";
-            this.ProductAddMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.ProductAddMenuItem.Size = new System.Drawing.Size(184, 26);
             this.ProductAddMenuItem.Text = "상품등록";
             this.ProductAddMenuItem.Click += new System.EventHandler(this.ProductAddMenuItem_Click);
             // 
             // ProductAddFileMenuItem
             // 
             this.ProductAddFileMenuItem.Name = "ProductAddFileMenuItem";
-            this.ProductAddFileMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.ProductAddFileMenuItem.Size = new System.Drawing.Size(184, 26);
             this.ProductAddFileMenuItem.Text = "일괄(파일)등록";
             // 
             // OrderMenuItem
@@ -83,53 +87,76 @@
             this.OrderMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OrderItemMenuItem});
             this.OrderMenuItem.Name = "OrderMenuItem";
-            this.OrderMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.OrderMenuItem.Size = new System.Drawing.Size(81, 24);
             this.OrderMenuItem.Text = "발주관리";
             // 
             // OrderItemMenuItem
             // 
             this.OrderItemMenuItem.Name = "OrderItemMenuItem";
-            this.OrderItemMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.OrderItemMenuItem.Size = new System.Drawing.Size(181, 26);
             this.OrderItemMenuItem.Text = "상품발주";
             this.OrderItemMenuItem.Click += new System.EventHandler(this.OrderItemMenuItem_Click);
             // 
             // InputMenuItem
             // 
             this.InputMenuItem.Name = "InputMenuItem";
-            this.InputMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.InputMenuItem.Size = new System.Drawing.Size(81, 24);
             this.InputMenuItem.Text = "입고관리";
             // 
             // CompanyMenuItem
             // 
             this.CompanyMenuItem.Name = "CompanyMenuItem";
-            this.CompanyMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.CompanyMenuItem.Size = new System.Drawing.Size(96, 24);
             this.CompanyMenuItem.Text = "거래처관리";
             // 
             // SystemMenuItem
             // 
+            this.SystemMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userMenuItem,
+            this.toolStripMenuItem1,
+            this.codeMenuItem});
             this.SystemMenuItem.Name = "SystemMenuItem";
-            this.SystemMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.SystemMenuItem.Size = new System.Drawing.Size(66, 24);
             this.SystemMenuItem.Text = "시스템";
             // 
             // tabForms
             // 
             this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabForms.Location = new System.Drawing.Point(0, 24);
+            this.tabForms.Location = new System.Drawing.Point(0, 28);
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
-            this.tabForms.Size = new System.Drawing.Size(800, 26);
-            this.tabForms.TabIndex = 1;
+            this.tabForms.Size = new System.Drawing.Size(914, 30);
+            this.tabForms.TabIndex = 3;
             this.tabForms.Visible = false;
+            // 
+            // userMenuItem
+            // 
+            this.userMenuItem.Name = "userMenuItem";
+            this.userMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.userMenuItem.Text = "사용자관리";
+            this.userMenuItem.Click += new System.EventHandler(this.userMenuItem_Click);
+            // 
+            // codeMenuItem
+            // 
+            this.codeMenuItem.Name = "codeMenuItem";
+            this.codeMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.codeMenuItem.Text = "코드관리";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(178, 6);
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 562);
             this.Controls.Add(this.tabForms);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain";
             this.Text = "Material Manage System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -154,5 +181,8 @@
         private System.Windows.Forms.ToolStripMenuItem ProductAddFileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OrderItemMenuItem;
         private System.Windows.Forms.TabControl tabForms;
+        private System.Windows.Forms.ToolStripMenuItem userMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem codeMenuItem;
     }
 }

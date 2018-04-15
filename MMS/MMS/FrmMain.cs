@@ -37,7 +37,6 @@ namespace MMS
         {
             FrmProduct frmProduct = new FrmProduct();
             frmProduct.MdiParent = this;
-            //frmProduct.WindowState = FormWindowState.Maximized;
             frmProduct.Show();
         }
 
@@ -45,8 +44,14 @@ namespace MMS
         {
             FrmOrderList frmOrderList = new FrmOrderList();
             frmOrderList.MdiParent = this;
-            //frmOrderList.WindowState = FormWindowState.Maximized;
             frmOrderList.Show();
+        }
+
+        private void userMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUser frmUser = new FrmUser();
+            frmUser.MdiParent = this;
+            frmUser.Show();
         }
 
         private void FrmMain_MdiChildActivate(object sender, EventArgs e)
@@ -57,7 +62,8 @@ namespace MMS
             }
             else
             {
-                this.ActiveMdiChild.WindowState = FormWindowState.Maximized;
+                this.ActiveMdiChild.WindowState =FormWindowState.Maximized;
+
                 if (this.ActiveMdiChild.Tag == null)
                 {
                     TabPage tp = new TabPage(this.ActiveMdiChild.Text);
@@ -67,11 +73,10 @@ namespace MMS
 
                     this.ActiveMdiChild.Tag = tp;
                     this.ActiveMdiChild.FormClosed += new FormClosedEventHandler(ActiveMdiChild_FormClosed);
-                } 
-                if (!tabForms.Visible)
-                {
-                    tabForms.Visible = true;
                 }
+
+                if (!tabForms.Visible) tabForms.Visible = true;
+
             }
         }
 
@@ -87,5 +92,7 @@ namespace MMS
                 (tabForms.SelectedTab.Tag as Form).Select();
             }
         }
+
+
     }
 }
