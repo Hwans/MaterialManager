@@ -84,7 +84,7 @@ namespace MMS
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
+                MessageBox.Show(e.Message);
             }
             return ds;
         }
