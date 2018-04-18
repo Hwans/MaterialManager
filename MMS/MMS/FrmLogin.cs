@@ -13,10 +13,6 @@ namespace MMS
 {
     public partial class FrmLogin : Form
     {
-        static string strConn = "Server=umj64-004.cafe24.com;Database=admin1981;Uid=admin1981;Pwd=admindb@1981;";
-        MySqlConnection conn = new MySqlConnection(strConn);
-
-
         public FrmLogin()
         {
             InitializeComponent();
@@ -77,6 +73,7 @@ namespace MMS
             DataSet ds = null;
             try
             {
+                MySqlConnection conn = new MySqlConnection(ClsCommon.strConn);
                 ds = new DataSet();
                 string sql = "SELECT USER_ID, USER_NAME, PASSWORD FROM TB_USERS WHERE USER_ID ='" + id + "' ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);

@@ -1,6 +1,6 @@
 ﻿namespace MMS
 {
-    partial class FrmUser
+    partial class FrmUserList
     {
         /// <summary>
         /// Required designer variable.
@@ -55,13 +55,13 @@
             | SourceGrid2.GridSpecialKeys.Escape)));
             this.grid1.TabIndex = 0;
             // 
-            // FrmUser
+            // FrmUserList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.grid1);
-            this.Name = "FrmUser";
+            this.Name = "FrmUserList";
             this.Text = "FrmUser";
             this.Load += new System.EventHandler(this.FrmUser_Load);
             this.ResumeLayout(false);

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MMS
 {
-    public partial class FrmProduct : Form
+    public partial class FrmProductList : Form
     {
-        public FrmProduct()
+        public FrmProductList()
         {
             InitializeComponent();
         }

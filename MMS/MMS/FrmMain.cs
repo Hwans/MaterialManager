@@ -35,9 +35,9 @@ namespace MMS
 
         private void ProductAddMenuItem_Click(object sender, EventArgs e)
         {
-            FrmProduct frmProduct = new FrmProduct();
-            frmProduct.MdiParent = this;
-            frmProduct.Show();
+            FrmProductList frmProductList = new FrmProductList();
+            frmProductList.MdiParent = this;
+            frmProductList.Show();
         }
 
         private void OrderItemMenuItem_Click(object sender, EventArgs e)
@@ -49,9 +49,9 @@ namespace MMS
 
         private void userMenuItem_Click(object sender, EventArgs e)
         {
-            FrmUser frmUser = new FrmUser();
-            frmUser.MdiParent = this;
-            frmUser.Show();
+            FrmUserList frmUserList = new FrmUserList();
+            frmUserList.MdiParent = this;
+            frmUserList.Show();
         }
 
         private void FrmMain_MdiChildActivate(object sender, EventArgs e)

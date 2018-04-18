@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,28 +22,14 @@ namespace MMS
 
         private void FrmOrderList_Load(object sender, EventArgs e)
         {
-            orderGrid.BorderStyle = BorderStyle.FixedSingle;
-            orderGrid.ColumnsCount = 8;
-            orderGrid.FixedRows = 1;
-            orderGrid.Rows.Insert(0);
-            orderGrid.Columns[1].Width = 480;
-            orderGrid[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("No");
-            orderGrid[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("상품명");
-            orderGrid[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("옵션명");
-            orderGrid[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("발주상태");
-            orderGrid[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("중요도");
-            orderGrid[0, 5] = new SourceGrid2.Cells.Real.ColumnHeader("비고");
-            orderGrid[0, 6] = new SourceGrid2.Cells.Real.ColumnHeader("발주요청일");
-            orderGrid[0, 7] = new SourceGrid2.Cells.Real.ColumnHeader("발주요청자");
-
-            for (int r = 1; r < 10; r++)
+            try
             {
-                orderGrid.Rows.Insert(r);
-                orderGrid[r, 0] = new SourceGrid2.Cells.Real.Cell("Hello "+ r.ToString(), typeof(string));
-                orderGrid[r, 1] = new SourceGrid2.Cells.Real.Cell(DateTime.Today, typeof(DateTime));
-                orderGrid[r, 2] = new SourceGrid2.Cells.Real.CheckBox(true);
+                selectOrderList();
             }
-            //orderGrid.AutoSizeAll();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -68,6 +55,34 @@ namespace MMS
         {
             try
             {
+                String sDate1 = sDate.Value.Year.ToString() + sDate.Value.Month.ToString().PadLeft(2, '0') + sDate.Value.Day.ToString().PadLeft(2, '0');
+
+                dataGridView1.Rows.Add(5);
+
+                dataGridView1[0, 0].Value = "1";
+                dataGridView1[0, 1].Value = "test1";
+                dataGridView1[0, 2].Value = "op1";
+                dataGridView1[0, 3].Value = "1";
+
+                dataGridView1[1, 0].Value = "1";
+                dataGridView1[1, 1].Value = "test1";
+                dataGridView1[1, 2].Value = "op1";
+                dataGridView1[1, 3].Value = "1";
+
+                dataGridView1[2, 0].Value = "1";
+                dataGridView1[2, 1].Value = "test1";
+                dataGridView1[2, 2].Value = "op1";
+                dataGridView1[2, 3].Value = "1";
+
+                dataGridView1[3, 0].Value = "1";
+                dataGridView1[3, 1].Value = "test1";
+                dataGridView1[3, 2].Value = "op1";
+                dataGridView1[3, 3].Value = "1";
+
+                dataGridView1[4, 0].Value = "1";
+                dataGridView1[4, 1].Value = "test1";
+                dataGridView1[4, 2].Value = "op1";
+                dataGridView1[4, 3].Value = "1";
 
             }
             catch (Exception ex)
@@ -78,8 +93,41 @@ namespace MMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmItemList frmItemList = new FrmItemList();
-            frmItemList.Show();
+            FrmItem frmItem = new FrmItem();
+            frmItem.ShowDialog();
+
+            try
+            {
+                selectOrderList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        /*
+         * 오늘날짜
+         * DateTime.Now.ToString("yyyyMMddHHmmss");
+         */
+
+        private DataSet getOrderList(String pDate)
+        {
+            DataSet ds = null;
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(ClsCommon.strConn);
+                ds = new DataSet();
+                string sql = "SELECT USER_ID, USER_NAME, PASSWORD FROM TB_USERS WHERE USER_ID ='" + pDate + "' ";
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds, "TB_USERS");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return ds;
+        }
+
     }
 }

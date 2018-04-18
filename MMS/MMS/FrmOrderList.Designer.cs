@@ -36,8 +36,20 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.sDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
-            this.orderGrid = new SourceGrid2.Grid();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -54,15 +66,15 @@
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1006, 56);
+            this.pnlTop.Size = new System.Drawing.Size(880, 45);
             this.pnlTop.TabIndex = 0;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(463, 14);
+            this.btnAdd.Location = new System.Drawing.Point(405, 11);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(146, 32);
+            this.btnAdd.Size = new System.Drawing.Size(128, 26);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "신규등록";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -71,10 +83,10 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(645, 14);
+            this.btnSelect.Location = new System.Drawing.Point(564, 11);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(85, 32);
+            this.btnSelect.Size = new System.Drawing.Size(74, 26);
             this.btnSelect.TabIndex = 4;
             this.btnSelect.Text = "조회";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -83,10 +95,10 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(734, 14);
+            this.btnSave.Location = new System.Drawing.Point(642, 11);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(85, 32);
+            this.btnSave.Size = new System.Drawing.Size(74, 26);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "저장";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -94,10 +106,10 @@
             // btnDelelte
             // 
             this.btnDelelte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelelte.Location = new System.Drawing.Point(824, 14);
+            this.btnDelelte.Location = new System.Drawing.Point(721, 11);
             this.btnDelelte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelelte.Name = "btnDelelte";
-            this.btnDelelte.Size = new System.Drawing.Size(85, 32);
+            this.btnDelelte.Size = new System.Drawing.Size(74, 26);
             this.btnDelelte.TabIndex = 4;
             this.btnDelelte.Text = "삭제";
             this.btnDelelte.UseVisualStyleBackColor = true;
@@ -105,10 +117,10 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(914, 14);
+            this.btnExit.Location = new System.Drawing.Point(800, 11);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(85, 32);
+            this.btnExit.Size = new System.Drawing.Size(74, 26);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "종료";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -117,52 +129,112 @@
             // sDate
             // 
             this.sDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.sDate.Location = new System.Drawing.Point(55, 16);
+            this.sDate.Location = new System.Drawing.Point(48, 13);
             this.sDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sDate.Name = "sDate";
-            this.sDate.Size = new System.Drawing.Size(125, 25);
+            this.sDate.Size = new System.Drawing.Size(110, 21);
             this.sDate.TabIndex = 1;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(11, 22);
+            this.lblDate.Location = new System.Drawing.Point(10, 18);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(37, 15);
+            this.lblDate.Size = new System.Drawing.Size(29, 12);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "날짜";
             // 
-            // orderGrid
+            // dataGridView1
             // 
-            this.orderGrid.AutoSizeMinHeight = 10;
-            this.orderGrid.AutoSizeMinWidth = 10;
-            this.orderGrid.AutoStretchColumnsToFitWidth = false;
-            this.orderGrid.AutoStretchRowsToFitHeight = false;
-            this.orderGrid.ContextMenuStyle = SourceGrid2.ContextMenuStyle.None;
-            this.orderGrid.CustomSort = false;
-            this.orderGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderGrid.FocusStyle = SourceGrid2.FocusStyle.None;
-            this.orderGrid.GridToolTipActive = true;
-            this.orderGrid.Location = new System.Drawing.Point(0, 56);
-            this.orderGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.orderGrid.Name = "orderGrid";
-            this.orderGrid.Size = new System.Drawing.Size(1006, 376);
-            this.orderGrid.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
-            | SourceGrid2.GridSpecialKeys.Ctrl_X) 
-            | SourceGrid2.GridSpecialKeys.Delete) 
-            | SourceGrid2.GridSpecialKeys.Arrows) 
-            | SourceGrid2.GridSpecialKeys.Tab) 
-            | SourceGrid2.GridSpecialKeys.PageDownUp) 
-            | SourceGrid2.GridSpecialKeys.Enter) 
-            | SourceGrid2.GridSpecialKeys.Escape)));
-            this.orderGrid.TabIndex = 2;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Col1,
+            this.Column2,
+            this.Col3,
+            this.Col4,
+            this.Col5,
+            this.Col6,
+            this.Col7,
+            this.Col8,
+            this.Col9,
+            this.Col10,
+            this.Col11});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 45);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(880, 301);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // Col1
+            // 
+            this.Col1.HeaderText = "No";
+            this.Col1.Name = "Col1";
+            this.Col1.Width = 32;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "상품명";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 200;
+            // 
+            // Col3
+            // 
+            this.Col3.HeaderText = "옵션명";
+            this.Col3.Name = "Col3";
+            this.Col3.Width = 200;
+            // 
+            // Col4
+            // 
+            this.Col4.HeaderText = "발주상태";
+            this.Col4.Name = "Col4";
+            // 
+            // Col5
+            // 
+            this.Col5.HeaderText = "중요도";
+            this.Col5.Name = "Col5";
+            // 
+            // Col6
+            // 
+            this.Col6.HeaderText = "비고";
+            this.Col6.Name = "Col6";
+            this.Col6.Width = 240;
+            // 
+            // Col7
+            // 
+            this.Col7.HeaderText = "발주요청일";
+            this.Col7.Name = "Col7";
+            // 
+            // Col8
+            // 
+            this.Col8.HeaderText = "발주요청자";
+            this.Col8.Name = "Col8";
+            // 
+            // Col9
+            // 
+            this.Col9.HeaderText = "발주ID";
+            this.Col9.Name = "Col9";
+            this.Col9.Visible = false;
+            // 
+            // Col10
+            // 
+            this.Col10.HeaderText = "상품ID";
+            this.Col10.Name = "Col10";
+            this.Col10.Visible = false;
+            // 
+            // Col11
+            // 
+            this.Col11.HeaderText = "옵션ID";
+            this.Col11.Name = "Col11";
+            this.Col11.Visible = false;
             // 
             // FrmOrderList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 432);
-            this.Controls.Add(this.orderGrid);
+            this.ClientSize = new System.Drawing.Size(880, 346);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pnlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmOrderList";
@@ -170,6 +242,7 @@
             this.Load += new System.EventHandler(this.FrmOrderList_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -184,6 +257,17 @@
         private System.Windows.Forms.DateTimePicker sDate;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Button btnAdd;
-        private SourceGrid2.Grid orderGrid;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col11;
     }
 }
