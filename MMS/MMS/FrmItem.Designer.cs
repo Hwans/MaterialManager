@@ -34,6 +34,9 @@
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboOption = new System.Windows.Forms.ComboBox();
+            this.txtSSEQ = new System.Windows.Forms.TextBox();
+            this.txtSEQ = new System.Windows.Forms.TextBox();
             this.pImage = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -49,9 +52,6 @@
             this.Col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSEQ = new System.Windows.Forms.TextBox();
-            this.txtSSEQ = new System.Windows.Forms.TextBox();
-            this.cboOption = new System.Windows.Forms.ComboBox();
             this.pnlTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
@@ -138,6 +138,28 @@
             this.panel1.Size = new System.Drawing.Size(324, 443);
             this.panel1.TabIndex = 4;
             // 
+            // cboOption
+            // 
+            this.cboOption.FormattingEnabled = true;
+            this.cboOption.Location = new System.Drawing.Point(70, 197);
+            this.cboOption.Name = "cboOption";
+            this.cboOption.Size = new System.Drawing.Size(240, 20);
+            this.cboOption.TabIndex = 8;
+            // 
+            // txtSSEQ
+            // 
+            this.txtSSEQ.Location = new System.Drawing.Point(21, 311);
+            this.txtSSEQ.Name = "txtSSEQ";
+            this.txtSSEQ.Size = new System.Drawing.Size(43, 21);
+            this.txtSSEQ.TabIndex = 7;
+            // 
+            // txtSEQ
+            // 
+            this.txtSEQ.Location = new System.Drawing.Point(21, 284);
+            this.txtSEQ.Name = "txtSEQ";
+            this.txtSEQ.Size = new System.Drawing.Size(43, 21);
+            this.txtSEQ.TabIndex = 7;
+            // 
             // pImage
             // 
             this.pImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -158,6 +180,7 @@
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -169,6 +192,7 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "저장";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cboStep
             // 
@@ -274,28 +298,6 @@
             this.Col3.HeaderText = "상품ID";
             this.Col3.Name = "Col3";
             this.Col3.Visible = false;
-            // 
-            // txtSEQ
-            // 
-            this.txtSEQ.Location = new System.Drawing.Point(21, 284);
-            this.txtSEQ.Name = "txtSEQ";
-            this.txtSEQ.Size = new System.Drawing.Size(43, 21);
-            this.txtSEQ.TabIndex = 7;
-            // 
-            // txtSSEQ
-            // 
-            this.txtSSEQ.Location = new System.Drawing.Point(21, 311);
-            this.txtSSEQ.Name = "txtSSEQ";
-            this.txtSSEQ.Size = new System.Drawing.Size(43, 21);
-            this.txtSSEQ.TabIndex = 7;
-            // 
-            // cboOption
-            // 
-            this.cboOption.FormattingEnabled = true;
-            this.cboOption.Location = new System.Drawing.Point(70, 197);
-            this.cboOption.Name = "cboOption";
-            this.cboOption.Size = new System.Drawing.Size(240, 20);
-            this.cboOption.TabIndex = 8;
             // 
             // FrmItem
             // 

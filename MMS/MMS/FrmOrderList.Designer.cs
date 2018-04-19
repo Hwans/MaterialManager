@@ -36,7 +36,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.sDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.orderList = new System.Windows.Forms.DataGridView();
             this.Col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +49,7 @@
             this.Col10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderList)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -144,10 +144,10 @@
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "날짜";
             // 
-            // dataGridView1
+            // orderList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Col1,
             this.Column2,
             this.Col3,
@@ -159,13 +159,13 @@
             this.Col9,
             this.Col10,
             this.Col11});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 45);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(880, 301);
-            this.dataGridView1.TabIndex = 1;
+            this.orderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orderList.Location = new System.Drawing.Point(0, 45);
+            this.orderList.Name = "orderList";
+            this.orderList.RowTemplate.Height = 23;
+            this.orderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.orderList.Size = new System.Drawing.Size(880, 301);
+            this.orderList.TabIndex = 1;
             // 
             // Col1
             // 
@@ -234,7 +234,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 346);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.orderList);
             this.Controls.Add(this.pnlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmOrderList";
@@ -242,7 +242,7 @@
             this.Load += new System.EventHandler(this.FrmOrderList_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,7 +257,7 @@
         private System.Windows.Forms.DateTimePicker sDate;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView orderList;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col3;

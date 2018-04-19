@@ -13,6 +13,9 @@ namespace MMS
 {
     public partial class FrmItem : Form
     {
+        static string sTitle = "상품조회";
+        MySqlConnection conn = null;
+
         public FrmItem()
         {
             InitializeComponent();
@@ -20,6 +23,8 @@ namespace MMS
 
         private void FrmItemList_Load(object sender, EventArgs e)
         {
+            conn = new MySqlConnection(ClsCommon.strConn);
+
             cboQuery.SelectedIndex = 0;
             setCobmoStep();
         }
@@ -83,7 +88,6 @@ namespace MMS
             DataSet ds = null;
             try
             {
-                MySqlConnection conn = new MySqlConnection(ClsCommon.strConn);
                 ds = new DataSet();
                 string sql = "SELECT SEQ, TITLE FROM TB_PRODUCT WHERE TITLE LIKE '%" + pValue + "%' ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
@@ -101,13 +105,16 @@ namespace MMS
             DataSet oDs = null;
             try
             {
+                //
+                initText();
+
+                //
                 String sSeq = itemGrid[2, e.RowIndex].Value.ToString();
                 oDs = getProduct(sSeq);
                 if (oDs.Tables.Count > 0)
                 {
                     DataRow oRows = oDs.Tables[0].Rows[0];
                     String imageURL = "";
-
 
                     txtSEQ.Text = oRows["SEQ"].ToString();
                     txtSSEQ.Text = oRows["SSEQ"].ToString();
@@ -126,6 +133,7 @@ namespace MMS
                         }
                     }
 
+                    cboOption.Items.Clear();
                     cboOption.DisplayMember = "Text";
                     cboOption.ValueMember = "Value";
                     foreach (DataRow options in oDs.Tables[0].Rows)
@@ -150,7 +158,6 @@ namespace MMS
             DataSet ds = null;
             try
             {
-                MySqlConnection conn = new MySqlConnection(ClsCommon.strConn);
                 ds = new DataSet();
 
                 String sql = "";
@@ -173,5 +180,76 @@ namespace MMS
             this.Close();
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("저장하시겠습니까?", this.Text, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    saveItem();
+                    MessageBox.Show("저장하였습니다.");
+                    initText();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void saveItem()
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand oCommand = new MySqlCommand();
+                oCommand.Connection = conn;
+                oCommand.CommandText = "INSERT INTO TB_ORDER( PSEQ, PSSEQ, STEP, ETC, REQUEST_DATE, USER_NAME ) VALUES(@PSEQ, @PSSEQ, @STEP, @ETC,  NOW(), @USER_NAME)";
+                oCommand.Parameters.Add("@PSEQ", MySqlDbType.Int16, 10);
+                oCommand.Parameters.Add("@PSSEQ", MySqlDbType.Int16, 10);
+                oCommand.Parameters.Add("@STEP", MySqlDbType.Int16, 10);
+                oCommand.Parameters.Add("@ETC", MySqlDbType.VarChar, 400);
+                oCommand.Parameters.Add("@USER_NAME", MySqlDbType.VarChar, 50);
+
+                oCommand.Parameters[0].Value = txtSEQ.Text;
+                oCommand.Parameters[1].Value = txtSSEQ.Text;
+                oCommand.Parameters[2].Value = cboOption.SelectedIndex + 1;
+                oCommand.Parameters[3].Value = txtETC.Text;
+                oCommand.Parameters[4].Value = "";
+                oCommand.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            initText();
+        }
+
+        private void initText()
+        {
+            txtSEQ.Text = "";
+            txtSSEQ.Text = "";
+
+            if (pImage.Image != null)
+            {
+                pImage.Image = null;
+            }
+
+            txtTitle.Text = "";
+            cboOption.Items.Clear();
+            cboOption.Text = "";
+            cboStep.SelectedIndex = 0;
+            txtETC.Text = "";
+        }
     }
 }
