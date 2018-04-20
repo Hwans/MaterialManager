@@ -26,6 +26,7 @@ namespace MMS
             try
             {
                 conn = new MySqlConnection(ClsCommon.strConn);
+                sDate.Value = DateTime.Today.AddDays(-3);
                 selectOrderList();
             }
             catch (Exception ex)
@@ -58,18 +59,32 @@ namespace MMS
             DataSet oDs = null;
             try
             {
-                String pDate = sDate.Text;
-                oDs = getOrderList(pDate);
+                //
+                orderGrid.Rows.Clear();
+
+                //
+                String pSDate = sDate.Text;
+                String pEDate = eDate.Text;
+
+                oDs = getOrderList(pSDate, pEDate);
                 if (oDs.Tables.Count > 0)
                 {
                     int idx = 0;
                     foreach (DataRow oRows in oDs.Tables[0].Rows)
                     {
-                        //itemGrid.Rows.Add();
-                        //itemGrid[0, idx].Value = idx + 1;
-                        //itemGrid[1, idx].Value = oRows["TITLE"];
-                        //itemGrid[2, idx].Value = oRows["SEQ"];
-                        //idx = idx + 1;
+                        orderGrid.Rows.Add();
+                        orderGrid[0, idx].Value = idx + 1;
+                        orderGrid[1, idx].Value = oRows["P_TITLE"];
+                        orderGrid[2, idx].Value = oRows["PO_TITLE"];
+                        orderGrid[3, idx].Value = "";
+                        orderGrid[4, idx].Value = getStep(oRows["STEP"].ToString());
+                        orderGrid[5, idx].Value = oRows["ETC"];
+                        orderGrid[6, idx].Value = oRows["REQUEST_DATE"];
+                        orderGrid[7, idx].Value = oRows["USER_NAME"];
+                        orderGrid[8, idx].Value = oRows["SEQ"];
+                        orderGrid[9, idx].Value = oRows["PSEQ"];
+                        orderGrid[10, idx].Value = oRows["PSSEQ"];
+                        idx = idx + 1;
                     }
                 }
             }
@@ -79,7 +94,7 @@ namespace MMS
             }
         }
 
-        private DataSet getOrderList(String pDate)
+        private DataSet getOrderList(String pSDate, String pEDate)
         {
             DataSet oDs = null;
             try
@@ -87,11 +102,12 @@ namespace MMS
                 oDs = new DataSet();
 
                 string sql = "";
-                sql = sql + "SELECT P.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.ETC, O.REQUEST_DATE, O.USER_NAME";
-                sql = sql + "FROM TB_ORDER O";
-                sql = sql + "JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ";
-                sql = sql + "JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ";
-                sql = sql + "WHERE DATE(O.REQUEST_DATE) = '" + pDate + "'";
+                sql = sql + " SELECT P.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.ETC, O.REQUEST_DATE, O.USER_NAME ";
+                sql = sql + " FROM TB_ORDER O ";
+                sql = sql + " JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
+                sql = sql + " JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";
+                sql = sql + " WHERE O.STATUS = 1 ";
+                sql = sql + " AND DATE(O.REQUEST_DATE) BETWEEN '" + pSDate + "' AND '" + pEDate + "' ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(oDs, "TB_ORDER");
             }
@@ -114,6 +130,25 @@ namespace MMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private String getStep(String pValue)
+        {
+            switch (pValue)
+            {
+                case "1":
+                    return "☆☆☆☆★";
+                case "2":
+                    return "☆☆☆★★";
+                case "3":
+                    return "☆☆★★★";
+                case "4":
+                    return "☆★★★★";
+                case "5":
+                    return "★★★★★";
+                default :
+                    return "☆☆☆☆★";
             }
         }
 

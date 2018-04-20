@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,28 +13,139 @@ namespace MMS
 {
     public partial class FrmProductList : Form
     {
+        MySqlConnection conn = null;
+
         public FrmProductList()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FrmProductList_Load(object sender, EventArgs e)
         {
-            grid1.BorderStyle = BorderStyle.FixedSingle;
-            grid1.ColumnsCount = 3;
-            grid1.FixedRows = 1;
-            grid1.Rows.Insert(0);
-            grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("String");
-            grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("DateTime");
-            grid1[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("CheckBox");
-            for (int r = 1; r < 10; r++)
+            conn = new MySqlConnection(ClsCommon.strConn);
+
+            cboQuery.SelectedIndex = 0;
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            try
             {
-                grid1.Rows.Insert(r);
-                grid1[r, 0] = new SourceGrid2.Cells.Real.Cell("Hello "
-                  + r.ToString(), typeof(string));
-                grid1[r, 1] = new SourceGrid2.Cells.Real.Cell(
-                  DateTime.Today, typeof(DateTime));
-                grid1[r, 2] = new SourceGrid2.Cells.Real.CheckBox(true);
+                selectOrderList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void selectOrderList()
+        {
+            DataSet oDs = null;
+            try
+            {
+                //
+                itemGrid.Rows.Clear();
+                
+                //
+                String pValue = txtQuery.Text;
+                oDs = getProductList("", pValue);
+                if (oDs.Tables.Count > 0)
+                {
+                    int idx = 0;
+                    foreach (DataRow oRows in oDs.Tables[0].Rows)
+                    {
+                        itemGrid.Rows.Add();
+                        itemGrid[0, idx].Value = idx + 1;
+                        itemGrid[1, idx].Value = oRows["CODE"];
+                        itemGrid[2, idx].Value = oRows["TITLE"];
+                        itemGrid[3, idx].Value = oRows["TITLE2"];
+                        itemGrid[4, idx].Value = oRows["SIZE"];
+                        itemGrid[5, idx].Value = oRows["REG_DATE"];
+                        itemGrid[6, idx].Value = oRows["BIZ_SEQ"];
+                        itemGrid[7, idx].Value = oRows["SEQ"];
+                        idx = idx + 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private DataSet getProductList(String type, String pValue)
+        {
+            DataSet ds = null;
+            try
+            {
+                ds = new DataSet();
+                string sql = "SELECT * FROM TB_PRODUCT WHERE TITLE LIKE '%" + pValue + "%' ";
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds, "TB_PRODUCT");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return ds;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void itemGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataSet oDs = null;
+            try
+            {
+                //
+                initText();
+
+                //
+                String sSeq = itemGrid[2, e.RowIndex].Value.ToString();
+                oDs = getProduct(sSeq);
+                if (oDs.Tables.Count > 0)
+                {
+                    DataRow oRows = oDs.Tables[0].Rows[0];
+                    String imageURL = "";
+
+                    txtSEQ.Text = oRows["SEQ"].ToString();
+                    txtSSEQ.Text = oRows["SSEQ"].ToString();
+                    txtTitle.Text = oRows["TITLE"].ToString();
+
+                    if (oRows["IMAGE"].ToString() != "")
+                    {
+                        try
+                        {
+                            imageURL = "https://retromom.cafe24.com/web/product/big/" + oRows["IMAGE"].ToString();
+                            pImage.Load(imageURL);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.Write(ex.Message);
+                        }
+                    }
+
+                    cboOption.Items.Clear();
+                    cboOption.DisplayMember = "Text";
+                    cboOption.ValueMember = "Value";
+                    foreach (DataRow options in oDs.Tables[0].Rows)
+                    {
+                        cboOption.Items.Add(new { Text = options["OPTION_TITLE"], Value = options["SSEQ"] });
+                    }
+                    //
+                    if (cboOption.Items.Count > 0)
+                    {
+                        cboOption.SelectedIndex = 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

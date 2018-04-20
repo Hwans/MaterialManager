@@ -94,7 +94,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(414, 11);
+            this.btnSelect.Location = new System.Drawing.Point(325, 11);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(74, 26);
@@ -267,6 +267,7 @@
             // 
             // itemGrid
             // 
+            this.itemGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.itemGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Col1,

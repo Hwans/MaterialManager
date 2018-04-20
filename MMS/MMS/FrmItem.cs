@@ -13,7 +13,6 @@ namespace MMS
 {
     public partial class FrmItem : Form
     {
-        static string sTitle = "상품조회";
         MySqlConnection conn = null;
 
         public FrmItem()
@@ -212,9 +211,15 @@ namespace MMS
                 oCommand.Parameters.Add("@ETC", MySqlDbType.VarChar, 400);
                 oCommand.Parameters.Add("@USER_NAME", MySqlDbType.VarChar, 50);
 
+                int nStep = 1;
+                if(cboStep.SelectedIndex > 0)
+                {
+                    nStep = cboStep.SelectedIndex;
+                }
+
                 oCommand.Parameters[0].Value = txtSEQ.Text;
                 oCommand.Parameters[1].Value = txtSSEQ.Text;
-                oCommand.Parameters[2].Value = cboOption.SelectedIndex + 1;
+                oCommand.Parameters[2].Value = nStep;
                 oCommand.Parameters[3].Value = txtETC.Text;
                 oCommand.Parameters[4].Value = "";
                 oCommand.ExecuteNonQuery();
@@ -226,9 +231,6 @@ namespace MMS
                 throw ex;
             }
         }
-
-
-
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

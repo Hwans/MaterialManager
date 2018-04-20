@@ -56,6 +56,8 @@ namespace MMS
                     }
                     else
                     {
+                        ClsCommon.strName = oDr["PASSWORD"].ToString();
+                        ClsCommon.strAdmin = "";
                         return true;
                     }
                 }
