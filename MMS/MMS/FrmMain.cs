@@ -71,7 +71,7 @@ namespace MMS
             }
             else
             {
-                this.ActiveMdiChild.WindowState =FormWindowState.Maximized;
+                this.ActiveMdiChild.WindowState = FormWindowState.Maximized;
 
                 if (this.ActiveMdiChild.Tag == null)
                 {
@@ -101,6 +101,5 @@ namespace MMS
                 (tabForms.SelectedTab.Tag as Form).Select();
             }
         }
-
     }
 }

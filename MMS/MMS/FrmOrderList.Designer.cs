@@ -66,15 +66,15 @@
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1008, 45);
+            this.pnlTop.Size = new System.Drawing.Size(1152, 56);
             this.pnlTop.TabIndex = 0;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(636, 11);
+            this.btnAdd.Location = new System.Drawing.Point(727, 14);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(128, 26);
+            this.btnAdd.Size = new System.Drawing.Size(146, 32);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "신규등록";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -82,11 +82,10 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(300, 11);
+            this.btnSelect.Location = new System.Drawing.Point(343, 14);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(74, 26);
+            this.btnSelect.Size = new System.Drawing.Size(85, 32);
             this.btnSelect.TabIndex = 4;
             this.btnSelect.Text = "조회";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -95,10 +94,10 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(928, 11);
+            this.btnExit.Location = new System.Drawing.Point(1061, 14);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(74, 26);
+            this.btnExit.Size = new System.Drawing.Size(85, 32);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "종료";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -107,36 +106,36 @@
             // eDate
             // 
             this.eDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.eDate.Location = new System.Drawing.Point(184, 13);
+            this.eDate.Location = new System.Drawing.Point(210, 16);
             this.eDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eDate.Name = "eDate";
-            this.eDate.Size = new System.Drawing.Size(110, 21);
+            this.eDate.Size = new System.Drawing.Size(125, 25);
             this.eDate.TabIndex = 1;
             // 
             // sDate
             // 
             this.sDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.sDate.Location = new System.Drawing.Point(48, 13);
+            this.sDate.Location = new System.Drawing.Point(55, 16);
             this.sDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sDate.Name = "sDate";
-            this.sDate.Size = new System.Drawing.Size(110, 21);
+            this.sDate.Size = new System.Drawing.Size(125, 25);
             this.sDate.TabIndex = 1;
             // 
             // lblSepa
             // 
             this.lblSepa.AutoSize = true;
-            this.lblSepa.Location = new System.Drawing.Point(164, 18);
+            this.lblSepa.Location = new System.Drawing.Point(187, 22);
             this.lblSepa.Name = "lblSepa";
-            this.lblSepa.Size = new System.Drawing.Size(14, 12);
+            this.lblSepa.Size = new System.Drawing.Size(18, 15);
             this.lblSepa.TabIndex = 0;
             this.lblSepa.Text = "~";
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(10, 18);
+            this.lblDate.Location = new System.Drawing.Point(11, 22);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(29, 12);
+            this.lblDate.Size = new System.Drawing.Size(37, 15);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "날짜";
             // 
@@ -157,81 +156,94 @@
             this.Col10,
             this.Col11});
             this.orderGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderGrid.Location = new System.Drawing.Point(0, 45);
+            this.orderGrid.Location = new System.Drawing.Point(0, 56);
+            this.orderGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.orderGrid.Name = "orderGrid";
+            this.orderGrid.ReadOnly = true;
             this.orderGrid.RowTemplate.Height = 23;
             this.orderGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderGrid.Size = new System.Drawing.Size(1008, 301);
+            this.orderGrid.Size = new System.Drawing.Size(1152, 376);
             this.orderGrid.TabIndex = 1;
             // 
             // Col1
             // 
             this.Col1.HeaderText = "No";
             this.Col1.Name = "Col1";
+            this.Col1.ReadOnly = true;
             this.Col1.Width = 32;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "상품명";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 320;
             // 
             // Col3
             // 
             this.Col3.HeaderText = "옵션명";
             this.Col3.Name = "Col3";
+            this.Col3.ReadOnly = true;
             this.Col3.Width = 200;
             // 
             // Col4
             // 
             this.Col4.HeaderText = "발주상태";
             this.Col4.Name = "Col4";
+            this.Col4.ReadOnly = true;
             this.Col4.Visible = false;
             // 
             // Col5
             // 
             this.Col5.HeaderText = "중요도";
             this.Col5.Name = "Col5";
+            this.Col5.ReadOnly = true;
             // 
             // Col6
             // 
             this.Col6.HeaderText = "비고";
             this.Col6.Name = "Col6";
+            this.Col6.ReadOnly = true;
             this.Col6.Width = 240;
             // 
             // Col7
             // 
             this.Col7.HeaderText = "발주요청일";
             this.Col7.Name = "Col7";
+            this.Col7.ReadOnly = true;
             // 
             // Col8
             // 
             this.Col8.HeaderText = "발주요청자";
             this.Col8.Name = "Col8";
+            this.Col8.ReadOnly = true;
             // 
             // Col9
             // 
             this.Col9.HeaderText = "발주ID";
             this.Col9.Name = "Col9";
+            this.Col9.ReadOnly = true;
             this.Col9.Visible = false;
             // 
             // Col10
             // 
             this.Col10.HeaderText = "상품ID";
             this.Col10.Name = "Col10";
+            this.Col10.ReadOnly = true;
             this.Col10.Visible = false;
             // 
             // Col11
             // 
             this.Col11.HeaderText = "옵션ID";
             this.Col11.Name = "Col11";
+            this.Col11.ReadOnly = true;
             this.Col11.Visible = false;
             // 
             // FrmOrderList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 346);
+            this.ClientSize = new System.Drawing.Size(1152, 432);
             this.Controls.Add(this.orderGrid);
             this.Controls.Add(this.pnlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
