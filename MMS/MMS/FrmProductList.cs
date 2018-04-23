@@ -105,22 +105,22 @@ namespace MMS
                 initText();
 
                 //
-                String sSeq = itemGrid[2, e.RowIndex].Value.ToString();
+                String sSeq = itemGrid[7, e.RowIndex].Value.ToString();
                 oDs = getProduct(sSeq);
                 if (oDs.Tables.Count > 0)
                 {
                     DataRow oRows = oDs.Tables[0].Rows[0];
-                    String imageURL = "";
-
                     txtSEQ.Text = oRows["SEQ"].ToString();
-                    txtSSEQ.Text = oRows["SSEQ"].ToString();
                     txtTitle.Text = oRows["TITLE"].ToString();
+                    txtTitle2.Text = oRows["TITLE2"].ToString();
+                    txtSize.Text = oRows["SIZE"].ToString();
+                    txtImage.Text = oRows["IMAGE"].ToString();
 
                     if (oRows["IMAGE"].ToString() != "")
                     {
                         try
                         {
-                            imageURL = "https://retromom.cafe24.com/web/product/big/" + oRows["IMAGE"].ToString();
+                            String imageURL = "https://retromom.cafe24.com/web/product/big/" + oRows["IMAGE"].ToString();
                             pImage.Load(imageURL);
                         }
                         catch (Exception ex)
@@ -129,17 +129,22 @@ namespace MMS
                         }
                     }
 
-                    cboOption.Items.Clear();
-                    cboOption.DisplayMember = "Text";
-                    cboOption.ValueMember = "Value";
+                    
+                    //
+                    optionGrid.Rows.Clear();
+                    //
+                    int idx = 0;
+
                     foreach (DataRow options in oDs.Tables[0].Rows)
                     {
-                        cboOption.Items.Add(new { Text = options["OPTION_TITLE"], Value = options["SSEQ"] });
-                    }
-                    //
-                    if (cboOption.Items.Count > 0)
-                    {
-                        cboOption.SelectedIndex = 0;
+                        optionGrid.Rows.Add();
+                        optionGrid[0, idx].Value = "저장";
+                        optionGrid[1, idx].Value = "삭제";
+                        optionGrid[2, idx].Value = options["OPTION_TITLE"];
+                        optionGrid[3, idx].Value = options["OPTION_SIZE"];
+                        optionGrid[4, idx].Value = options["OPTION_ETC"];
+                        optionGrid[5, idx].Value = options["SSEQ"];
+                        idx = idx + 1;
                     }
                 }
             }
@@ -147,6 +152,75 @@ namespace MMS
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private DataSet getProduct(String pSeq)
+        {
+            DataSet ds = null;
+            try
+            {
+                ds = new DataSet();
+
+                String sql = "";
+                sql = sql + " SELECT P.SEQ, P.CODE, P.TITLE, P.TITLE2, P.SIZE, P.IMAGE, PO.SSEQ, PO.TITLE AS OPTION_TITLE, PO.SIZE AS OPTION_SIZE, PO.ETC AS OPTION_ETC ";
+                sql = sql + " FROM TB_PRODUCT P ";
+                sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON P.SEQ = PO.SEQ ";
+                sql = sql + " WHERE P.SEQ = '" + pSeq + "' ";
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds, "TB_PRODUCT_OPTION");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return ds;
+        }
+
+        private void initText()
+        {
+            if (pImage.Image != null)
+            {
+                pImage.Image = null;
+            }
+
+            txtSEQ.Text = "";
+            txtTitle.Text = "";
+            txtTitle2.Text = "";
+            cboCompany.Items.Clear();
+            cboCompany.Text = "";
+        }
+
+        private void optionGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                //
+                if(e.ColumnIndex == 0)
+                {
+                    //저장
+
+                }
+                else if(e.ColumnIndex == 1)
+                {
+                    //삭제
+                }
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

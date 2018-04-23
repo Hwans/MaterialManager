@@ -13,7 +13,6 @@ namespace MMS
 {
     public partial class FrmUserList : Form
     {
-        static string sTitle = "사용자관리";
         MySqlConnection conn = null;
 
         public FrmUserList()
