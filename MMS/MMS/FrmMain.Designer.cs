@@ -43,6 +43,7 @@
             this.tabForms = new System.Windows.Forms.TabControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.companyItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,14 +75,14 @@
             // ProductAddMenuItem
             // 
             this.ProductAddMenuItem.Name = "ProductAddMenuItem";
-            this.ProductAddMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.ProductAddMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ProductAddMenuItem.Text = "상품등록";
             this.ProductAddMenuItem.Click += new System.EventHandler(this.ProductAddMenuItem_Click);
             // 
             // ProductAddFileMenuItem
             // 
             this.ProductAddFileMenuItem.Name = "ProductAddFileMenuItem";
-            this.ProductAddFileMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.ProductAddFileMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ProductAddFileMenuItem.Text = "일괄(파일)등록";
             // 
             // OrderMenuItem
@@ -95,7 +96,7 @@
             // OrderItemMenuItem
             // 
             this.OrderItemMenuItem.Name = "OrderItemMenuItem";
-            this.OrderItemMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.OrderItemMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OrderItemMenuItem.Text = "상품발주";
             this.OrderItemMenuItem.Click += new System.EventHandler(this.OrderItemMenuItem_Click);
             // 
@@ -107,6 +108,8 @@
             // 
             // CompanyMenuItem
             // 
+            this.CompanyMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.companyItemMenuItem});
             this.CompanyMenuItem.Name = "CompanyMenuItem";
             this.CompanyMenuItem.Size = new System.Drawing.Size(79, 20);
             this.CompanyMenuItem.Text = "거래처관리";
@@ -124,19 +127,19 @@
             // userMenuItem
             // 
             this.userMenuItem.Name = "userMenuItem";
-            this.userMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.userMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userMenuItem.Text = "사용자관리";
             this.userMenuItem.Click += new System.EventHandler(this.userMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(131, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // codeMenuItem
             // 
             this.codeMenuItem.Name = "codeMenuItem";
-            this.codeMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.codeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.codeMenuItem.Text = "코드관리";
             // 
             // tabForms
@@ -165,6 +168,13 @@
             this.statusName.Name = "statusName";
             this.statusName.Size = new System.Drawing.Size(39, 17);
             this.statusName.Text = "Name";
+            // 
+            // companyItemMenuItem
+            // 
+            this.companyItemMenuItem.Name = "companyItemMenuItem";
+            this.companyItemMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.companyItemMenuItem.Text = "거래처등록";
+            this.companyItemMenuItem.Click += new System.EventHandler(this.companyItemMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -207,5 +217,6 @@
         private System.Windows.Forms.ToolStripMenuItem codeMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusName;
+        private System.Windows.Forms.ToolStripMenuItem companyItemMenuItem;
     }
 }

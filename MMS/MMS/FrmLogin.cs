@@ -56,8 +56,8 @@ namespace MMS
                     }
                     else
                     {
-                        ClsCommon.strName = oDr["PASSWORD"].ToString();
-                        ClsCommon.strAdmin = "";
+                        ClsCommon.strName = oDr["USER_NAME"].ToString();
+                        ClsCommon.strAdmin = oDr["ADMIN"].ToString();
                         return true;
                     }
                 }
@@ -77,7 +77,7 @@ namespace MMS
             {
                 MySqlConnection conn = new MySqlConnection(ClsCommon.strConn);
                 ds = new DataSet();
-                string sql = "SELECT USER_ID, USER_NAME, PASSWORD FROM TB_USERS WHERE USER_ID ='" + id + "' ";
+                string sql = "SELECT USER_ID, USER_NAME, PASSWORD, ADMIN FROM TB_USERS WHERE USER_ID ='" + id + "' ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(ds, "TB_USERS");
             }

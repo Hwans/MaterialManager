@@ -30,6 +30,8 @@ namespace MMS
             else
             {
                 this.Show();
+                //
+                statusName.Text = ClsCommon.strName;
             }
         }
 
@@ -45,6 +47,13 @@ namespace MMS
             FrmOrderList frmOrderList = new FrmOrderList();
             frmOrderList.MdiParent = this;
             frmOrderList.Show();
+        }
+
+        private void companyItemMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCompanyList frmCompanyList = new FrmCompanyList();
+            frmCompanyList.MdiParent = this;
+            frmCompanyList.Show();
         }
 
         private void userMenuItem_Click(object sender, EventArgs e)
@@ -92,7 +101,6 @@ namespace MMS
                 (tabForms.SelectedTab.Tag as Form).Select();
             }
         }
-
 
     }
 }

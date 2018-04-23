@@ -253,5 +253,21 @@ namespace MMS
             cboStep.SelectedIndex = 0;
             txtETC.Text = "";
         }
+
+        private void txtQuery_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    itemGrid.Rows.Clear();
+                    selectOrderList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }
