@@ -603,5 +603,11 @@ namespace MMS
         {
             //optionGrid.Rows.Clear();
         }
+
+        private void btnBigImage_Click(object sender, EventArgs e)
+        {
+            FrmImage fImage = new FrmImage(pImage.ImageLocation);
+            fImage.Show();
+        }
     }
 }
