@@ -120,7 +120,7 @@ namespace MMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmItem frmItem = new FrmItem();
+            FrmItemList frmItem = new FrmItemList();
             frmItem.ShowDialog();
 
             try

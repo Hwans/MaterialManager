@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace MMS
 {
-    public partial class FrmItem : Form
+    public partial class FrmItemList : Form
     {
         MySqlConnection conn = null;
 
-        public FrmItem()
+        public FrmItemList()
         {
             InitializeComponent();
         }

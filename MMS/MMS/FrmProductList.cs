@@ -25,33 +25,6 @@ namespace MMS
             conn = new MySqlConnection(ClsCommon.strConn);
             //
             cboQuery.SelectedIndex = 0;
-            //
-            setCobmoStep();
-        }
-
-        private void setCobmoStep()
-        {
-            cboCompany.DisplayMember = "Text";
-            cboCompany.ValueMember = "Value";
-
-            DataSet oDs = null;
-            try
-            {
-                oDs = getCompanyList();
-                if (oDs.Tables.Count > 0)
-                {
-                    foreach (DataRow oRows in oDs.Tables[0].Rows)
-                    {
-                        cboCompany.Items.Add(new { Text = oRows["BIZ_NAME"].ToString(), Value = oRows["SEQ"].ToString() });
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-
         }
 
         private DataSet getCompanyList()
@@ -234,7 +207,6 @@ namespace MMS
             txtTitle.Text = "";
             txtTitle2.Text = "";
             txtImage.Text = "";
-            cboCompany.Text = "";
         }
 
         private void btnSave_Click(object sender, EventArgs e)

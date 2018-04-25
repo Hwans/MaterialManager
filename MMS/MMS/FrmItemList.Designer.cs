@@ -1,6 +1,6 @@
 ﻿namespace MMS
 {
-    partial class FrmItem
+    partial class FrmItemList
     {
         /// <summary>
         /// Required designer variable.
