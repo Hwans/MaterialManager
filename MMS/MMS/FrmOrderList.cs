@@ -102,10 +102,10 @@ namespace MMS
                 oDs = new DataSet();
 
                 string sql = "";
-                sql = sql + " SELECT P.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.ETC, O.REQUEST_DATE, O.USER_NAME ";
+                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.ETC, O.REQUEST_DATE, O.USER_NAME ";
                 sql = sql + " FROM TB_ORDER O ";
-                sql = sql + " JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
-                sql = sql + " JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";
+                sql = sql + " LEFT JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
+                sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";
                 sql = sql + " WHERE O.STATUS = 1 ";
                 sql = sql + " AND DATE(O.REQUEST_DATE) BETWEEN '" + pSDate + "' AND '" + pEDate + "' ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
@@ -152,5 +152,20 @@ namespace MMS
             }
         }
 
+        private void orderGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String sSEQ = orderGrid[8, e.RowIndex].Value.ToString();
+            FrmOrderDetail frmOrderDetail = new FrmOrderDetail(sSEQ);
+            frmOrderDetail.ShowDialog();
+
+            try
+            {
+                selectOrderList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

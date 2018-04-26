@@ -1,6 +1,6 @@
 ﻿namespace MMS
 {
-    partial class FrmItemDetail
+    partial class FrmOrderDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.cboOption = new System.Windows.Forms.ComboBox();
-            this.txtSEQ = new System.Windows.Forms.TextBox();
+            this.txtPSEQ = new System.Windows.Forms.TextBox();
             this.pImage = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -42,6 +42,7 @@
             this.lblImage = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtSEQ = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,12 +54,13 @@
             this.cboOption.Size = new System.Drawing.Size(240, 20);
             this.cboOption.TabIndex = 8;
             // 
-            // txtSEQ
+            // txtPSEQ
             // 
-            this.txtSEQ.Location = new System.Drawing.Point(7, 205);
-            this.txtSEQ.Name = "txtSEQ";
-            this.txtSEQ.Size = new System.Drawing.Size(43, 21);
-            this.txtSEQ.TabIndex = 7;
+            this.txtPSEQ.Location = new System.Drawing.Point(7, 205);
+            this.txtPSEQ.Name = "txtPSEQ";
+            this.txtPSEQ.Size = new System.Drawing.Size(43, 21);
+            this.txtPSEQ.TabIndex = 7;
+            this.txtPSEQ.Visible = false;
             // 
             // pImage
             // 
@@ -177,15 +179,24 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // FrmItemDetail
+            // txtSEQ
+            // 
+            this.txtSEQ.Location = new System.Drawing.Point(7, 178);
+            this.txtSEQ.Name = "txtSEQ";
+            this.txtSEQ.Size = new System.Drawing.Size(43, 21);
+            this.txtSEQ.TabIndex = 9;
+            this.txtSEQ.Visible = false;
+            // 
+            // FrmOrderDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 279);
+            this.Controls.Add(this.txtSEQ);
             this.Controls.Add(this.lblEtc);
             this.Controls.Add(this.cboOption);
             this.Controls.Add(this.pImage);
-            this.Controls.Add(this.txtSEQ);
+            this.Controls.Add(this.txtPSEQ);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.btnDelete);
@@ -197,7 +208,8 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.txtETC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FrmItemDetail";
+            this.Name = "FrmOrderDetail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "상품상세정보";
             this.Load += new System.EventHandler(this.FrmItemDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).EndInit();
@@ -209,7 +221,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cboOption;
-        private System.Windows.Forms.TextBox txtSEQ;
+        private System.Windows.Forms.TextBox txtPSEQ;
         private System.Windows.Forms.PictureBox pImage;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
@@ -222,5 +234,6 @@
         private System.Windows.Forms.Label lblImage;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtSEQ;
     }
 }

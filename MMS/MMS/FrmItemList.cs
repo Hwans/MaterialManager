@@ -30,14 +30,16 @@ namespace MMS
 
         private void setCobmoStep()
         {
-            cboStep.DisplayMember = "Text";
-            cboStep.ValueMember = "Value";
+            Dictionary<string, string> dicStep = new Dictionary<string, string>();
+            dicStep.Add("1", "☆☆☆☆★");
+            dicStep.Add("2", "☆☆☆★★");
+            dicStep.Add("3", "☆☆★★★");
+            dicStep.Add("4", "☆★★★★");
+            dicStep.Add("5", "★★★★★");
 
-            cboStep.Items.Add(new { Text = "☆☆☆☆★", Value = 1 });
-            cboStep.Items.Add(new { Text = "☆☆☆★★", Value = 2 });
-            cboStep.Items.Add(new { Text = "☆☆★★★", Value = 3 });
-            cboStep.Items.Add(new { Text = "☆★★★★", Value = 4 });
-            cboStep.Items.Add(new { Text = "★★★★★", Value = 5 });
+            cboStep.DataSource = new BindingSource(dicStep, null);
+            cboStep.DisplayMember = "Value";
+            cboStep.ValueMember = "Key";
 
             cboStep.SelectedIndex = 0;
         }
@@ -132,16 +134,21 @@ namespace MMS
                         }
                     }
 
-                    cboOption.Items.Clear();
-                    cboOption.DisplayMember = "Text";
-                    cboOption.ValueMember = "Value";
+                    
+                    
+
+                    Dictionary<string, string> dicOption = new Dictionary<string, string>();
                     foreach (DataRow options in oDs.Tables[0].Rows)
                     {
-                        cboOption.Items.Add(new { Text = options["OPTION_TITLE"], Value = options["SSEQ"] });
+                        dicOption.Add(options["SSEQ"].ToString(), options["OPTION_TITLE"].ToString());
                     }
                     //
-                    if(cboOption.Items.Count > 0)
+                    if(dicOption.Count > 0)
                     {
+                        cboOption.DataSource = new BindingSource(dicOption, null);
+                        cboOption.DisplayMember = "Value";
+                        cboOption.ValueMember = "Key";
+                        
                         cboOption.SelectedIndex = 0;
                     }
                 }
@@ -211,17 +218,11 @@ namespace MMS
                 oCommand.Parameters.Add("@ETC", MySqlDbType.VarChar, 400);
                 oCommand.Parameters.Add("@USER_NAME", MySqlDbType.VarChar, 50);
 
-                int nStep = 1;
-                if(cboStep.SelectedIndex > 0)
-                {
-                    nStep = cboStep.SelectedIndex;
-                }
-
                 oCommand.Parameters[0].Value = txtSEQ.Text;
-                oCommand.Parameters[1].Value = txtSSEQ.Text;
-                oCommand.Parameters[2].Value = nStep;
+                oCommand.Parameters[1].Value = ((KeyValuePair<String, String>)cboOption.SelectedItem).Key;
+                oCommand.Parameters[2].Value = ((KeyValuePair<String, String>)cboStep.SelectedItem).Key;
                 oCommand.Parameters[3].Value = txtETC.Text;
-                oCommand.Parameters[4].Value = "";
+                oCommand.Parameters[4].Value = ClsCommon.strName;
                 oCommand.ExecuteNonQuery();
 
                 conn.Close();
@@ -248,7 +249,7 @@ namespace MMS
             }
 
             txtTitle.Text = "";
-            cboOption.Items.Clear();
+            cboOption.DataSource = null;
             cboOption.Text = "";
             cboStep.SelectedIndex = 0;
             txtETC.Text = "";

@@ -153,6 +153,7 @@
             this.txtSSEQ.Name = "txtSSEQ";
             this.txtSSEQ.Size = new System.Drawing.Size(43, 21);
             this.txtSSEQ.TabIndex = 7;
+            this.txtSSEQ.Visible = false;
             // 
             // txtSEQ
             // 
@@ -160,6 +161,7 @@
             this.txtSEQ.Name = "txtSEQ";
             this.txtSEQ.Size = new System.Drawing.Size(43, 21);
             this.txtSEQ.TabIndex = 7;
+            this.txtSEQ.Visible = false;
             // 
             // pImage
             // 
