@@ -25,6 +25,52 @@ namespace MMS
             conn = new MySqlConnection(ClsCommon.strConn);
             //
             cboQuery.SelectedIndex = 0;
+
+            //
+            setCompanyList();
+        }
+
+        private void setCompanyList()
+        {
+            DataSet oDs = null;
+            try
+            {
+                oDs = getCompanyList();
+
+                Dictionary<string, string> dicOption = new Dictionary<string, string>();
+                foreach (DataRow options in oDs.Tables[0].Rows)
+                {
+                    dicOption.Add(options["SEQ"].ToString(), options["BIZ_NAME"].ToString());
+                }
+                //
+                if (dicOption.Count > 0)
+                {
+                    //
+                    cboCompany.DataSource = new BindingSource(dicOption, null);
+                    cboCompany.DisplayMember = "Value";
+                    cboCompany.ValueMember = "Key";
+                    cboCompany.Text = "";
+
+                    //
+                    cboCompany2.DataSource = new BindingSource(dicOption, null);
+                    cboCompany2.DisplayMember = "Value";
+                    cboCompany2.ValueMember = "Key";
+                    cboCompany2.Text = "";
+
+                    //
+                    cboCompany3.DataSource = new BindingSource(dicOption, null);
+                    cboCompany3.DisplayMember = "Value";
+                    cboCompany3.ValueMember = "Key";
+                    cboCompany3.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            
         }
 
         private DataSet getCompanyList()
@@ -207,6 +253,10 @@ namespace MMS
             txtTitle.Text = "";
             txtTitle2.Text = "";
             txtImage.Text = "";
+
+            cboCompany.Text = "";
+            cboCompany2.Text = "";
+            cboCompany3.Text = "";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -256,18 +306,24 @@ namespace MMS
 
                 MySqlCommand oCommand = new MySqlCommand();
                 oCommand.Connection = conn;
-                oCommand.CommandText = "INSERT INTO TB_PRODUCT( CODE, TITLE, TITLE2, SIZE, IMAGE, REG_DATE ) VALUES( @CODE, @TITLE, @TITLE2, @SIZE, @IMAGE, NOW() )";
+                oCommand.CommandText = "INSERT INTO TB_PRODUCT( CODE, TITLE, TITLE2, SIZE, IMAGE, BIZ_SEQ, BIZ_SEQ2, BIZ_SEQ3, REG_DATE ) VALUES( @CODE, @TITLE, @TITLE2, @SIZE, @IMAGE, @BIZ_SEQ, @BIZ_SEQ2, @BIZ_SEQ3, NOW() )";
                 oCommand.Parameters.Add("@CODE", MySqlDbType.VarChar, 50);
                 oCommand.Parameters.Add("@TITLE", MySqlDbType.VarChar, 200);
                 oCommand.Parameters.Add("@TITLE2", MySqlDbType.VarChar, 200);
                 oCommand.Parameters.Add("@SIZE", MySqlDbType.VarChar, 200);
                 oCommand.Parameters.Add("@IMAGE", MySqlDbType.VarChar, 200);
+                oCommand.Parameters.Add("@BIZ_SEQ", MySqlDbType.Int16, 11);
+                oCommand.Parameters.Add("@BIZ_SEQ2", MySqlDbType.Int16, 11);
+                oCommand.Parameters.Add("@BIZ_SEQ3", MySqlDbType.Int16, 11);
 
                 oCommand.Parameters[0].Value = txtCode.Text;
                 oCommand.Parameters[1].Value = txtTitle.Text;
                 oCommand.Parameters[2].Value = txtTitle2.Text;
                 oCommand.Parameters[3].Value = txtSize.Text;
                 oCommand.Parameters[4].Value = txtImage.Text;
+                oCommand.Parameters[5].Value = ((KeyValuePair<String, String>)cboCompany.SelectedItem).Key;
+                oCommand.Parameters[6].Value = ((KeyValuePair<String, String>)cboCompany2.SelectedItem).Key;
+                oCommand.Parameters[7].Value = ((KeyValuePair<String, String>)cboCompany3.SelectedItem).Key;
                 oCommand.ExecuteNonQuery();
 
                 conn.Close();
@@ -288,7 +344,10 @@ namespace MMS
                 sql = sql + " TITLE=@TITLE,";
                 sql = sql + " TITLE2=@TITLE2,";
                 sql = sql + " SIZE=@SIZE, ";
-                sql = sql + " IMAGE=@IMAGE ";
+                sql = sql + " IMAGE=@IMAGE, ";
+                sql = sql + " BIZ_SEQ=@BIZ_SEQ, ";
+                sql = sql + " BIZ_SEQ2=@BIZ_SEQ2, ";
+                sql = sql + " BIZ_SEQ3=@BIZ_SEQ3 ";
                 sql = sql + " WHERE SEQ=@SEQ ";
 
                 conn.Open();
@@ -301,6 +360,9 @@ namespace MMS
                 oCommand.Parameters.Add("@TITLE2", MySqlDbType.VarChar, 200);
                 oCommand.Parameters.Add("@SIZE", MySqlDbType.VarChar, 200);
                 oCommand.Parameters.Add("@IMAGE", MySqlDbType.VarChar, 200);
+                oCommand.Parameters.Add("@BIZ_SEQ", MySqlDbType.Int16, 11);
+                oCommand.Parameters.Add("@BIZ_SEQ2", MySqlDbType.Int16, 11);
+                oCommand.Parameters.Add("@BIZ_SEQ3", MySqlDbType.Int16, 11);
                 oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
 
                 oCommand.Parameters[0].Value = txtCode.Text;
@@ -308,7 +370,10 @@ namespace MMS
                 oCommand.Parameters[2].Value = txtTitle2.Text;
                 oCommand.Parameters[3].Value = txtSize.Text;
                 oCommand.Parameters[4].Value = txtImage.Text;
-                oCommand.Parameters[5].Value = txtSEQ.Text;
+                oCommand.Parameters[5].Value = ((KeyValuePair<String, String>)cboCompany.SelectedItem).Key;
+                oCommand.Parameters[6].Value = ((KeyValuePair<String, String>)cboCompany2.SelectedItem).Key;
+                oCommand.Parameters[7].Value = ((KeyValuePair<String, String>)cboCompany3.SelectedItem).Key;
+                oCommand.Parameters[8].Value = txtSEQ.Text;
                 oCommand.ExecuteNonQuery();
 
                 conn.Close();

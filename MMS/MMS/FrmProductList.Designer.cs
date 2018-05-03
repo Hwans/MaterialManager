@@ -60,6 +60,12 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.cboCompany3 = new System.Windows.Forms.ComboBox();
+            this.lblCompany3 = new System.Windows.Forms.Label();
+            this.cboCompany2 = new System.Windows.Forms.ComboBox();
+            this.lblCompany2 = new System.Windows.Forms.Label();
+            this.cboCompany = new System.Windows.Forms.ComboBox();
+            this.lblCompany = new System.Windows.Forms.Label();
             this.pImage = new System.Windows.Forms.PictureBox();
             this.txtImage = new System.Windows.Forms.TextBox();
             this.txtSize = new System.Windows.Forms.TextBox();
@@ -72,12 +78,6 @@
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.lblCompany = new System.Windows.Forms.Label();
-            this.cboCompany = new System.Windows.Forms.ComboBox();
-            this.lblCompany2 = new System.Windows.Forms.Label();
-            this.cboCompany2 = new System.Windows.Forms.ComboBox();
-            this.lblCompany3 = new System.Windows.Forms.Label();
-            this.cboCompany3 = new System.Windows.Forms.ComboBox();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             this.panel1.SuspendLayout();
@@ -415,6 +415,63 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // cboCompany3
+            // 
+            this.cboCompany3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCompany3.FormattingEnabled = true;
+            this.cboCompany3.Location = new System.Drawing.Point(65, 343);
+            this.cboCompany3.Name = "cboCompany3";
+            this.cboCompany3.Size = new System.Drawing.Size(385, 20);
+            this.cboCompany3.TabIndex = 12;
+            // 
+            // lblCompany3
+            // 
+            this.lblCompany3.AutoSize = true;
+            this.lblCompany3.Location = new System.Drawing.Point(11, 345);
+            this.lblCompany3.Name = "lblCompany3";
+            this.lblCompany3.Size = new System.Drawing.Size(47, 12);
+            this.lblCompany3.TabIndex = 11;
+            this.lblCompany3.Text = "거래처3";
+            // 
+            // cboCompany2
+            // 
+            this.cboCompany2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCompany2.FormattingEnabled = true;
+            this.cboCompany2.Location = new System.Drawing.Point(65, 317);
+            this.cboCompany2.Name = "cboCompany2";
+            this.cboCompany2.Size = new System.Drawing.Size(385, 20);
+            this.cboCompany2.TabIndex = 12;
+            // 
+            // lblCompany2
+            // 
+            this.lblCompany2.AutoSize = true;
+            this.lblCompany2.Location = new System.Drawing.Point(11, 319);
+            this.lblCompany2.Name = "lblCompany2";
+            this.lblCompany2.Size = new System.Drawing.Size(47, 12);
+            this.lblCompany2.TabIndex = 11;
+            this.lblCompany2.Text = "거래처2";
+            // 
+            // cboCompany
+            // 
+            this.cboCompany.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCompany.FormattingEnabled = true;
+            this.cboCompany.Location = new System.Drawing.Point(65, 291);
+            this.cboCompany.Name = "cboCompany";
+            this.cboCompany.Size = new System.Drawing.Size(385, 20);
+            this.cboCompany.TabIndex = 12;
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Location = new System.Drawing.Point(11, 293);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(41, 12);
+            this.lblCompany.TabIndex = 11;
+            this.lblCompany.Text = "거래처";
+            // 
             // pImage
             // 
             this.pImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -530,63 +587,6 @@
             this.splitter1.Size = new System.Drawing.Size(5, 577);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
-            // 
-            // lblCompany
-            // 
-            this.lblCompany.AutoSize = true;
-            this.lblCompany.Location = new System.Drawing.Point(11, 293);
-            this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(41, 12);
-            this.lblCompany.TabIndex = 11;
-            this.lblCompany.Text = "거래처";
-            // 
-            // cboCompany
-            // 
-            this.cboCompany.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCompany.FormattingEnabled = true;
-            this.cboCompany.Location = new System.Drawing.Point(65, 291);
-            this.cboCompany.Name = "cboCompany";
-            this.cboCompany.Size = new System.Drawing.Size(385, 20);
-            this.cboCompany.TabIndex = 12;
-            // 
-            // lblCompany2
-            // 
-            this.lblCompany2.AutoSize = true;
-            this.lblCompany2.Location = new System.Drawing.Point(11, 319);
-            this.lblCompany2.Name = "lblCompany2";
-            this.lblCompany2.Size = new System.Drawing.Size(47, 12);
-            this.lblCompany2.TabIndex = 11;
-            this.lblCompany2.Text = "거래처2";
-            // 
-            // cboCompany2
-            // 
-            this.cboCompany2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCompany2.FormattingEnabled = true;
-            this.cboCompany2.Location = new System.Drawing.Point(65, 317);
-            this.cboCompany2.Name = "cboCompany2";
-            this.cboCompany2.Size = new System.Drawing.Size(385, 20);
-            this.cboCompany2.TabIndex = 12;
-            // 
-            // lblCompany3
-            // 
-            this.lblCompany3.AutoSize = true;
-            this.lblCompany3.Location = new System.Drawing.Point(11, 345);
-            this.lblCompany3.Name = "lblCompany3";
-            this.lblCompany3.Size = new System.Drawing.Size(47, 12);
-            this.lblCompany3.TabIndex = 11;
-            this.lblCompany3.Text = "거래처3";
-            // 
-            // cboCompany3
-            // 
-            this.cboCompany3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCompany3.FormattingEnabled = true;
-            this.cboCompany3.Location = new System.Drawing.Point(65, 343);
-            this.cboCompany3.Name = "cboCompany3";
-            this.cboCompany3.Size = new System.Drawing.Size(385, 20);
-            this.cboCompany3.TabIndex = 12;
             // 
             // FrmProductList
             // 

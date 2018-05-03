@@ -49,6 +49,13 @@ namespace MMS
             frmOrderList.Show();
         }
 
+        private void OrderItemMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmOrderList2 frmOrderList2 = new FrmOrderList2();
+            frmOrderList2.MdiParent = this;
+            frmOrderList2.Show();
+        }
+
         private void companyItemMenuItem_Click(object sender, EventArgs e)
         {
             FrmCompanyList frmCompanyList = new FrmCompanyList();
@@ -101,5 +108,7 @@ namespace MMS
                 (tabForms.SelectedTab.Tag as Form).Select();
             }
         }
+
+
     }
 }

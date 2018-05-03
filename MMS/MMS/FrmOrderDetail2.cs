@@ -11,22 +11,22 @@ using System.Windows.Forms;
 
 namespace MMS
 {
-    public partial class FrmOrderDetail : Form
+    public partial class FrmOrderDetail2 : Form
     {
         MySqlConnection conn = null;
 
-        public FrmOrderDetail()
+        public FrmOrderDetail2()
         {
             InitializeComponent();
         }
 
-        public FrmOrderDetail(String sSEQ)
+        public FrmOrderDetail2(String sSEQ)
         {
             InitializeComponent();
             txtSEQ.Text = sSEQ;
         }
 
-        private void FrmItemDetail_Load(object sender, EventArgs e)
+        private void FrmOrderDetail2_Load(object sender, EventArgs e)
         {
             conn = new MySqlConnection(ClsCommon.strConn);
 
@@ -129,7 +129,7 @@ namespace MMS
                     txtPSEQ.Text = oRows["PSEQ"].ToString();
                     txtTitle.Text = oRows["TITLE"].ToString();
                     cboOption.SelectedValue = oRows["PSSEQ"].ToString();
-                    cboStep .SelectedValue = oRows["STEP"].ToString();
+                    cboStep.SelectedValue = oRows["STEP"].ToString();
                     txtETC.Text = oRows["ETC"].ToString();
                 }
             }
@@ -185,10 +185,9 @@ namespace MMS
             {
                 String sql = "";
                 sql = sql + " UPDATE TB_ORDER SET  ";
-                sql = sql + " PSEQ=@PSEQ, ";
-                sql = sql + " PSSEQ=@PSSEQ, ";
-                sql = sql + " STEP=@STEP, ";
-                sql = sql + " ETC=@ETC";
+                sql = sql + " QTY=@QTY, ";
+                sql = sql + " ETC2=@ETC2, ";
+                sql = sql + " STATUS=2 ";
                 sql = sql + " WHERE SEQ=@SEQ ";
 
                 conn.Open();
@@ -196,61 +195,15 @@ namespace MMS
                 MySqlCommand oCommand = new MySqlCommand();
                 oCommand.Connection = conn;
                 oCommand.CommandText = sql;
-                oCommand.Parameters.Add("@PSEQ", MySqlDbType.Int16, 11);
-                oCommand.Parameters.Add("@PSSEQ", MySqlDbType.Int16, 11);
-                oCommand.Parameters.Add("@STEP", MySqlDbType.Int16, 11);
-                oCommand.Parameters.Add("@ETC", MySqlDbType.VarChar, 400);
+                oCommand.Parameters.Add("@QTY", MySqlDbType.Int16, 11);
+                oCommand.Parameters.Add("@ETC2", MySqlDbType.VarChar, 400);
                 oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
 
-                oCommand.Parameters[0].Value = txtPSEQ.Text;
-                oCommand.Parameters[1].Value = ((KeyValuePair<String, String>)cboOption.SelectedItem).Key;
-                oCommand.Parameters[2].Value = ((KeyValuePair<String, String>)cboStep.SelectedItem).Key;
-                oCommand.Parameters[3].Value = txtETC.Text;
-                oCommand.Parameters[4].Value = txtSEQ.Text;
+                oCommand.Parameters[0].Value = txtQty.Text;
+                oCommand.Parameters[1].Value = txtEtc2.Text;
+                oCommand.Parameters[2].Value = txtSEQ.Text;
                 oCommand.ExecuteNonQuery();
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("삭제하시겠습니까?", this.Text, MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                try
-                {
-                    deleteOrder();
-                    MessageBox.Show("삭제하였습니다.");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
-        private void deleteOrder()
-        {
-            try
-            {
-                conn.Open();
-
-                MySqlCommand oCommand = new MySqlCommand();
-                oCommand.Connection = conn;
-                oCommand.CommandText = " DELETE FROM TB_ORDER WHERE SEQ=@SEQ ";
-                oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
-                oCommand.Parameters[0].Value = txtSEQ.Text;
-                oCommand.ExecuteNonQuery();
-
-                conn.Close();
             }
             catch (Exception ex)
             {

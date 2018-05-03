@@ -90,11 +90,23 @@
     <Compile Include="FrmItemList.Designer.cs">
       <DependentUpon>FrmItemList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOrderDetail2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderDetail2.Designer.cs">
+      <DependentUpon>FrmOrderDetail2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOrderList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmOrderList.Designer.cs">
       <DependentUpon>FrmOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderList2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderList2.Designer.cs">
+      <DependentUpon>FrmOrderList2.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProductList.cs">
       <SubType>Form</SubType>
@@ -134,8 +146,14 @@
     <EmbeddedResource Include="FrmItemList.resx">
       <DependentUpon>FrmItemList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderDetail2.resx">
+      <DependentUpon>FrmOrderDetail2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmOrderList.resx">
       <DependentUpon>FrmOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderList2.resx">
+      <DependentUpon>FrmOrderList2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductList.resx">
       <DependentUpon>FrmProductList.cs</DependentUpon>
