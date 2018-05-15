@@ -34,6 +34,8 @@
             this.ProductAddFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.OrderItemMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.InputMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CompanyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.companyItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,7 @@
             this.tabForms = new System.Windows.Forms.TabControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.OrderItemMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputProductMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +87,7 @@
             this.ProductAddFileMenuItem.Name = "ProductAddFileMenuItem";
             this.ProductAddFileMenuItem.Size = new System.Drawing.Size(154, 22);
             this.ProductAddFileMenuItem.Text = "일괄(파일)등록";
+            this.ProductAddFileMenuItem.Click += new System.EventHandler(this.ProductAddFileMenuItem_Click);
             // 
             // OrderMenuItem
             // 
@@ -104,8 +106,22 @@
             this.OrderItemMenuItem.Text = "상품발주";
             this.OrderItemMenuItem.Click += new System.EventHandler(this.OrderItemMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // OrderItemMenuItem2
+            // 
+            this.OrderItemMenuItem2.Name = "OrderItemMenuItem2";
+            this.OrderItemMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.OrderItemMenuItem2.Text = "상품발주(관리자)";
+            this.OrderItemMenuItem2.Click += new System.EventHandler(this.OrderItemMenuItem2_Click);
+            // 
             // InputMenuItem
             // 
+            this.InputMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inputProductMenuItem});
             this.InputMenuItem.Name = "InputMenuItem";
             this.InputMenuItem.Size = new System.Drawing.Size(67, 20);
             this.InputMenuItem.Text = "입고관리";
@@ -182,17 +198,12 @@
             this.statusName.Size = new System.Drawing.Size(39, 17);
             this.statusName.Text = "Name";
             // 
-            // toolStripSeparator1
+            // inputProductMenuItem
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // OrderItemMenuItem2
-            // 
-            this.OrderItemMenuItem2.Name = "OrderItemMenuItem2";
-            this.OrderItemMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.OrderItemMenuItem2.Text = "상품발주(관리자)";
-            this.OrderItemMenuItem2.Click += new System.EventHandler(this.OrderItemMenuItem2_Click);
+            this.inputProductMenuItem.Name = "inputProductMenuItem";
+            this.inputProductMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inputProductMenuItem.Text = "상품입고";
+            this.inputProductMenuItem.Click += new System.EventHandler(this.inputProductMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -238,5 +249,6 @@
         private System.Windows.Forms.ToolStripMenuItem companyItemMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem OrderItemMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem inputProductMenuItem;
     }
 }

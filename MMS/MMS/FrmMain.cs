@@ -42,6 +42,13 @@ namespace MMS
             frmProductList.Show();
         }
 
+        private void ProductAddFileMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmProductFile frmProductFile = new FrmProductFile();
+            frmProductFile.MdiParent = this;
+            frmProductFile.Show();
+        }
+
         private void OrderItemMenuItem_Click(object sender, EventArgs e)
         {
             FrmOrderList frmOrderList = new FrmOrderList();
@@ -54,6 +61,13 @@ namespace MMS
             FrmOrderList2 frmOrderList2 = new FrmOrderList2();
             frmOrderList2.MdiParent = this;
             frmOrderList2.Show();
+        }
+
+        private void inputProductMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmOrderInputList frmOrderInputList = new FrmOrderInputList();
+            frmOrderInputList.MdiParent = this;
+            frmOrderInputList.Show();
         }
 
         private void companyItemMenuItem_Click(object sender, EventArgs e)

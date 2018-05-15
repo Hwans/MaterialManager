@@ -11,16 +11,16 @@ using System.Windows.Forms;
 
 namespace MMS
 {
-    public partial class FrmOrderList2 : Form
+    public partial class FrmOrderInputList : Form
     {
         MySqlConnection conn = null;
 
-        public FrmOrderList2()
+        public FrmOrderInputList()
         {
             InitializeComponent();
         }
 
-        private void FrmOrderList2_Load(object sender, EventArgs e)
+        private void FrmOrderInputList_Load(object sender, EventArgs e)
         {
             try
             {
@@ -31,6 +31,14 @@ namespace MMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("종료할까요?", this.Text, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
 
@@ -66,23 +74,21 @@ namespace MMS
                     {
                         orderGrid.Rows.Add();
                         orderGrid[0, idx].Value = idx + 1;
-                        orderGrid[1, idx].Value = oRows["BIZ_NAME"].ToString();
-                        orderGrid[2, idx].Value = oRows["P_TITLE"].ToString();
-                        orderGrid[3, idx].Value = oRows["PO_TITLE"].ToString();
-                        orderGrid[4, idx].Value = getStatus(oRows["STATUS"].ToString());
-                        orderGrid[5, idx].Value = getStep(oRows["STEP"].ToString());
-                        orderGrid[6, idx].Value = oRows["ETC"].ToString();
-                        orderGrid[7, idx].Value = oRows["QTY"].ToString();
-                        orderGrid[8, idx].Value = oRows["REQUEST_DATE"];
-                        orderGrid[9, idx].Value = oRows["USER_NAME"].ToString();
-                        orderGrid[10, idx].Value = oRows["SEQ"];
-                        orderGrid[11, idx].Value = oRows["PSEQ"];
-                        orderGrid[12, idx].Value = oRows["PSSEQ"];
-                        orderGrid[13, idx].Value = oRows["BIZ_SEQ"];
+                        orderGrid[1, idx].Value = oRows["P_TITLE"];
+                        orderGrid[2, idx].Value = oRows["PO_TITLE"];
+                        orderGrid[3, idx].Value = "";
+                        orderGrid[4, idx].Value = getStep(oRows["STEP"].ToString());
+                        orderGrid[5, idx].Value = oRows["QTY2"].ToString();
+                        orderGrid[5, idx].Value = oRows["ETC"];
+                        orderGrid[6, idx].Value = oRows["REQUEST_DATE"];
+                        orderGrid[7, idx].Value = oRows["USER_NAME"];
+                        orderGrid[8, idx].Value = oRows["SEQ"];
+                        orderGrid[9, idx].Value = oRows["PSEQ"];
+                        orderGrid[10, idx].Value = oRows["PSSEQ"];
 
-                        if( Int16.Parse(oRows["QTY"].ToString()) > 0 )
+                        if(oRows["QTY"].ToString() != oRows["QTY2"].ToString())
                         {
-                            orderGrid.Rows[idx].DefaultCellStyle.BackColor = Color.Red;
+                            orderGrid.Rows[idx].DefaultCellStyle.BackColor = Color.AntiqueWhite;
                         }
 
                         idx = idx + 1;
@@ -95,27 +101,6 @@ namespace MMS
             }
         }
 
-        private String getStatus(String sCode)
-        {
-            String sReturn = "";
-            try
-            {
-                if(sCode=="1")
-                {
-                    sReturn = "발주요청";
-                }
-                else if (sCode == "2")
-                {
-                    sReturn = "발주";
-                }
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            return sReturn;
-        }
-
         private DataSet getOrderList(String pSDate, String pEDate)
         {
             DataSet oDs = null;
@@ -124,12 +109,18 @@ namespace MMS
                 oDs = new DataSet();
 
                 string sql = "";
-                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.QTY, O.ETC, O.STATUS, O.REQUEST_DATE, O.USER_NAME, C.SEQ AS BIZ_SEQ, C.BIZ_NAME ";
+                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.ETC, O.REQUEST_DATE, O.USER_NAME, O.QTY, 0.QTY2 ";
                 sql = sql + " FROM TB_ORDER O ";
                 sql = sql + " LEFT JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
                 sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";
-                sql = sql + " LEFT JOIN TB_COMPANY C ON P.BIZ_SEQ = C.SEQ ";
-                sql = sql + " WHERE O.STATUS IN (1, 2) ";
+                if(chkView.Checked == true)
+                {
+                    sql = sql + " WHERE O.STATUS IN (2, 3) ";
+                }
+                else
+                {
+                    sql = sql + " WHERE O.STATUS = 2 ";
+                }
                 sql = sql + " AND DATE(O.REQUEST_DATE) BETWEEN '" + pSDate + "' AND '" + pEDate + "' ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(oDs, "TB_ORDER");
@@ -160,34 +151,11 @@ namespace MMS
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("종료할까요?", this.Text, MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            FrmItemList frmItem = new FrmItemList();
-            frmItem.ShowDialog();
-
-            try
-            {
-                selectOrderList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void orderGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            String sSEQ = orderGrid[10, e.RowIndex].Value.ToString();
-            FrmOrderDetail2 frmOrderDetail2 = new FrmOrderDetail2(sSEQ);
-            frmOrderDetail2.ShowDialog();
+            String sSEQ = orderGrid[8, e.RowIndex].Value.ToString();
+            FrmInputDetail frmInputDetail = new FrmInputDetail(sSEQ);
+            frmInputDetail.ShowDialog();
 
             try
             {
@@ -198,5 +166,6 @@ namespace MMS
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

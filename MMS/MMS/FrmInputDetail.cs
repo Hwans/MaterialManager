@@ -11,22 +11,22 @@ using System.Windows.Forms;
 
 namespace MMS
 {
-    public partial class FrmOrderDetail2 : Form
+    public partial class FrmInputDetail : Form
     {
         MySqlConnection conn = null;
 
-        public FrmOrderDetail2()
+        public FrmInputDetail()
         {
             InitializeComponent();
         }
 
-        public FrmOrderDetail2(String sSEQ)
+        public FrmInputDetail(String sSEQ)
         {
             InitializeComponent();
             txtSEQ.Text = sSEQ;
         }
 
-        private void FrmOrderDetail2_Load(object sender, EventArgs e)
+        private void FrmInputDetail_Load(object sender, EventArgs e)
         {
             conn = new MySqlConnection(ClsCommon.strConn);
 
@@ -185,10 +185,10 @@ namespace MMS
             {
                 String sql = "";
                 sql = sql + " UPDATE TB_ORDER SET  ";
-                sql = sql + " QTY=@QTY, ";
-                sql = sql + " ETC2=@ETC2, ";
-                sql = sql + " STATUS=2,  ";
-                sql = sql + " ORDER_DATE=NOW()  ";
+                sql = sql + " QTY2=@QTY2, ";
+                sql = sql + " ETC3=@ETC3, ";
+                sql = sql + " STATUS=3, ";
+                sql = sql + " INPUT_DATE=NOW()  ";
                 sql = sql + " WHERE SEQ=@SEQ ";
 
                 conn.Open();
@@ -196,8 +196,8 @@ namespace MMS
                 MySqlCommand oCommand = new MySqlCommand();
                 oCommand.Connection = conn;
                 oCommand.CommandText = sql;
-                oCommand.Parameters.Add("@QTY", MySqlDbType.Int16, 11);
-                oCommand.Parameters.Add("@ETC2", MySqlDbType.VarChar, 400);
+                oCommand.Parameters.Add("@QTY2", MySqlDbType.Int16, 11);
+                oCommand.Parameters.Add("@ETC3", MySqlDbType.VarChar, 400);
                 oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
 
                 oCommand.Parameters[0].Value = txtQty.Text;

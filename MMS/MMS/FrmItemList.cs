@@ -211,7 +211,7 @@ namespace MMS
 
                 MySqlCommand oCommand = new MySqlCommand();
                 oCommand.Connection = conn;
-                oCommand.CommandText = "INSERT INTO TB_ORDER( PSEQ, PSSEQ, STEP, ETC, REQUEST_DATE, USER_NAME ) VALUES(@PSEQ, @PSSEQ, @STEP, @ETC,  NOW(), @USER_NAME)";
+                oCommand.CommandText = "INSERT INTO TB_ORDER( PSEQ, PSSEQ, STEP, QTY, QTY2, ETC, REQUEST_DATE, USER_NAME ) VALUES(@PSEQ, @PSSEQ, @STEP, 0, 0, @ETC,  NOW(), @USER_NAME)";
                 oCommand.Parameters.Add("@PSEQ", MySqlDbType.Int16, 10);
                 oCommand.Parameters.Add("@PSSEQ", MySqlDbType.Int16, 10);
                 oCommand.Parameters.Add("@STEP", MySqlDbType.Int16, 10);
