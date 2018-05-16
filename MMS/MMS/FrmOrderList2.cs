@@ -82,7 +82,7 @@ namespace MMS
 
                         if( Int16.Parse(oRows["QTY"].ToString()) > 0 )
                         {
-                            orderGrid.Rows[idx].DefaultCellStyle.BackColor = Color.Red;
+                            orderGrid.Rows[idx].DefaultCellStyle.BackColor = Color.LightBlue;
                         }
 
                         idx = idx + 1;
