@@ -24,6 +24,11 @@ namespace MMS
         {
             InitializeComponent();
             txtSEQ.Text = sSEQ;
+
+            if(ClsCommon.strAdmin != "1")
+            {
+                this.Size = new System.Drawing.Size(647, 426);
+            }
         }
 
         private void FrmInputDetail_Load(object sender, EventArgs e)
@@ -131,6 +136,12 @@ namespace MMS
                     cboOption.SelectedValue = oRows["PSSEQ"].ToString();
                     cboStep.SelectedValue = oRows["STEP"].ToString();
                     txtETC.Text = oRows["ETC"].ToString();
+                    //발주정보
+                    txtQty.Text = oRows["QTY"].ToString();
+                    txtEtc2.Text = oRows["ETC2"].ToString();
+                    //입고정보
+                    txtQty2.Text = oRows["QTY2"].ToString();
+                    txtEtc3.Text = oRows["ETC3"].ToString();
                 }
             }
             catch (Exception ex)
@@ -147,7 +158,7 @@ namespace MMS
                 ds = new DataSet();
 
                 String sql = "";
-                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, O.STEP, O.ETC, P.CODE, P.TITLE, P.TITLE2, P.IMAGE, PO.TITLE AS OPTION_TITLE ";
+                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, O.STEP, O.QTY, O.QTY2, O.ETC, O.ETC2, O.ETC3, P.CODE, P.TITLE, P.TITLE2, P.IMAGE, PO.TITLE AS OPTION_TITLE ";
                 sql = sql + " FROM TB_ORDER O ";
                 sql = sql + " LEFT JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
                 sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";
@@ -200,8 +211,8 @@ namespace MMS
                 oCommand.Parameters.Add("@ETC3", MySqlDbType.VarChar, 400);
                 oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
 
-                oCommand.Parameters[0].Value = txtQty.Text;
-                oCommand.Parameters[1].Value = txtEtc2.Text;
+                oCommand.Parameters[0].Value = txtQty2.Text;
+                oCommand.Parameters[1].Value = txtEtc3.Text;
                 oCommand.Parameters[2].Value = txtSEQ.Text;
                 oCommand.ExecuteNonQuery();
 
