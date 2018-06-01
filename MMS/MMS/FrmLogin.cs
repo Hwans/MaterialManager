@@ -113,5 +113,11 @@ namespace MMS
                 }
             }
         }
+
+        private void picConfig_Click(object sender, EventArgs e)
+        {
+            FrmConfig frmConfig = new FrmConfig();
+            frmConfig.ShowDialog();
+        }
     }
 }

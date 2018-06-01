@@ -415,7 +415,7 @@ namespace MMS
 
                 MySqlCommand oCommand = new MySqlCommand();
                 oCommand.Connection = conn;
-                oCommand.CommandText = " DELETE FROM TB_PRODUC WHERE SEQ = @SEQ ";
+                oCommand.CommandText = " DELETE FROM TB_PRODUCT WHERE SEQ = @SEQ ";
                 oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
 
                 oCommand.Parameters[0].Value = txtSEQ.Text;

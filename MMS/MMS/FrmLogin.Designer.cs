@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtPWD = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.picConfig = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID
@@ -67,12 +70,25 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // picConfig
+            // 
+            this.picConfig.Image = ((System.Drawing.Image)(resources.GetObject("picConfig.Image")));
+            this.picConfig.Location = new System.Drawing.Point(220, 271);
+            this.picConfig.Name = "picConfig";
+            this.picConfig.Size = new System.Drawing.Size(24, 24);
+            this.picConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picConfig.TabIndex = 3;
+            this.picConfig.TabStop = false;
+            this.picConfig.Visible = false;
+            this.picConfig.Click += new System.EventHandler(this.picConfig_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(245, 296);
+            this.Controls.Add(this.picConfig);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPWD);
             this.Controls.Add(this.txtID);
@@ -80,6 +96,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOGIN";
+            ((System.ComponentModel.ISupportInitialize)(this.picConfig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +107,7 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtPWD;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.PictureBox picConfig;
     }
 }
 
