@@ -83,6 +83,12 @@ namespace MMS
                         orderGrid[8, idx].Value = oRows["SEQ"];
                         orderGrid[9, idx].Value = oRows["PSEQ"];
                         orderGrid[10, idx].Value = oRows["PSSEQ"];
+
+                        if (Int16.Parse(oRows["EMPTY_YN"].ToString()) > 0)
+                        {
+                            orderGrid.Rows[idx].DefaultCellStyle.BackColor = Color.PaleVioletRed;
+                        }
+
                         idx = idx + 1;
                     }
                 }
@@ -101,7 +107,7 @@ namespace MMS
                 oDs = new DataSet();
 
                 string sql = "";
-                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.ETC, O.REQUEST_DATE, O.USER_NAME ";
+                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.EMPTY_YN, O.ETC, O.REQUEST_DATE, O.USER_NAME ";
                 sql = sql + " FROM TB_ORDER O ";
                 sql = sql + " LEFT JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
                 sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";

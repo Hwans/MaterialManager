@@ -32,8 +32,8 @@
             this.lblQty2 = new System.Windows.Forms.Label();
             this.txtQty2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblQty = new System.Windows.Forms.Label();
             this.txtEtc3 = new System.Windows.Forms.TextBox();
+            this.lblQty = new System.Windows.Forms.Label();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.txtSEQ = new System.Windows.Forms.TextBox();
             this.lblEtc = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblEtc2 = new System.Windows.Forms.Label();
             this.txtEtc2 = new System.Windows.Forms.TextBox();
+            this.btnOrderCancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -96,15 +97,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "입고정보";
             // 
-            // lblQty
-            // 
-            this.lblQty.AutoSize = true;
-            this.lblQty.Location = new System.Drawing.Point(10, 25);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(53, 12);
-            this.lblQty.TabIndex = 17;
-            this.lblQty.Text = "발주수량";
-            // 
             // txtEtc3
             // 
             this.txtEtc3.Location = new System.Drawing.Point(366, 19);
@@ -113,6 +105,15 @@
             this.txtEtc3.Name = "txtEtc3";
             this.txtEtc3.Size = new System.Drawing.Size(240, 70);
             this.txtEtc3.TabIndex = 18;
+            // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Location = new System.Drawing.Point(10, 25);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(53, 12);
+            this.lblQty.TabIndex = 17;
+            this.lblQty.Text = "발주수량";
             // 
             // txtQty
             // 
@@ -286,11 +287,24 @@
             this.txtEtc2.Size = new System.Drawing.Size(240, 70);
             this.txtEtc2.TabIndex = 18;
             // 
+            // btnOrderCancel
+            // 
+            this.btnOrderCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOrderCancel.Location = new System.Drawing.Point(545, 355);
+            this.btnOrderCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOrderCancel.Name = "btnOrderCancel";
+            this.btnOrderCancel.Size = new System.Drawing.Size(74, 26);
+            this.btnOrderCancel.TabIndex = 42;
+            this.btnOrderCancel.Text = "발주취소";
+            this.btnOrderCancel.UseVisualStyleBackColor = true;
+            this.btnOrderCancel.Click += new System.EventHandler(this.btnOrderCancel_Click);
+            // 
             // FrmInputDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 525);
+            this.Controls.Add(this.btnOrderCancel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtSEQ);
@@ -348,5 +362,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblEtc2;
         private System.Windows.Forms.TextBox txtEtc2;
+        private System.Windows.Forms.Button btnOrderCancel;
     }
 }

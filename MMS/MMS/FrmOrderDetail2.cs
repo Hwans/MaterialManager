@@ -216,9 +216,97 @@ namespace MMS
             }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("삭제하시겠습니까?", this.Text, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    deleteOrder();
+                    MessageBox.Show("삭제하였습니다.");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void deleteOrder()
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand oCommand = new MySqlCommand();
+                oCommand.Connection = conn;
+                oCommand.CommandText = " DELETE FROM TB_ORDER WHERE SEQ=@SEQ ";
+                oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
+                oCommand.Parameters[0].Value = txtSEQ.Text;
+                oCommand.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSoldOut_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("품절처리 하시겠습니까?", this.Text, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    saveSoldOut();
+                    MessageBox.Show("처리하였습니다.");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void saveSoldOut()
+        {
+            try
+            {
+                String sql = "";
+                sql = sql + " UPDATE TB_ORDER SET  ";
+                sql = sql + " EMPTY_YN=1  ";
+                sql = sql + " WHERE SEQ=@SEQ ";
+
+                conn.Open();
+
+                MySqlCommand oCommand = new MySqlCommand();
+                oCommand.Connection = conn;
+                oCommand.CommandText = sql;
+                oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
+
+                oCommand.Parameters[0].Value = txtSEQ.Text;
+                oCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

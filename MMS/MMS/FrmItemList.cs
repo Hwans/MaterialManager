@@ -219,7 +219,14 @@ namespace MMS
                 oCommand.Parameters.Add("@USER_NAME", MySqlDbType.VarChar, 50);
 
                 oCommand.Parameters[0].Value = txtSEQ.Text;
-                oCommand.Parameters[1].Value = ((KeyValuePair<String, String>)cboOption.SelectedItem).Key;
+                if(cboOption.Text != "")
+                {
+                    oCommand.Parameters[1].Value = ((KeyValuePair<String, String>)cboOption.SelectedItem).Key;
+                }
+                else
+                {
+                    oCommand.Parameters[1].Value = 0;
+                }
                 oCommand.Parameters[2].Value = ((KeyValuePair<String, String>)cboStep.SelectedItem).Key;
                 oCommand.Parameters[3].Value = txtETC.Text;
                 oCommand.Parameters[4].Value = ClsCommon.strName;

@@ -32,6 +32,15 @@ namespace MMS
                 this.Show();
                 //
                 statusName.Text = ClsCommon.strName;
+
+                if(ClsCommon.strAdmin != "1")
+                {
+                    toolStripSeparator1.Visible = false;
+                    OrderItemMenuItem2.Visible = false;
+
+                    CompanyMenuItem.Visible = false;
+                    SystemMenuItem.Visible = false;
+                }
             }
         }
 

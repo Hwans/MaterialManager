@@ -47,6 +47,8 @@
             this.lblQty = new System.Windows.Forms.Label();
             this.txtEtc2 = new System.Windows.Forms.TextBox();
             this.txtQty = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSoldOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -115,7 +117,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(314, 355);
+            this.btnCancel.Location = new System.Drawing.Point(362, 355);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(74, 26);
@@ -136,7 +138,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(234, 355);
+            this.btnSave.Location = new System.Drawing.Point(202, 355);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(74, 26);
@@ -228,11 +230,36 @@
             this.txtQty.Size = new System.Drawing.Size(232, 21);
             this.txtQty.TabIndex = 19;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Location = new System.Drawing.Point(282, 355);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(74, 26);
+            this.btnDelete.TabIndex = 26;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSoldOut
+            // 
+            this.btnSoldOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSoldOut.Location = new System.Drawing.Point(545, 355);
+            this.btnSoldOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSoldOut.Name = "btnSoldOut";
+            this.btnSoldOut.Size = new System.Drawing.Size(74, 26);
+            this.btnSoldOut.TabIndex = 20;
+            this.btnSoldOut.Text = "품절";
+            this.btnSoldOut.UseVisualStyleBackColor = true;
+            this.btnSoldOut.Click += new System.EventHandler(this.btnSoldOut_Click);
+            // 
             // FrmOrderDetail2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 392);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtSEQ);
             this.Controls.Add(this.lblEtc);
@@ -243,6 +270,7 @@
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblOption);
+            this.Controls.Add(this.btnSoldOut);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblEmergency);
             this.Controls.Add(this.cboStep);
@@ -281,5 +309,7 @@
         private System.Windows.Forms.Label lblQty;
         private System.Windows.Forms.TextBox txtEtc2;
         private System.Windows.Forms.TextBox txtQty;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSoldOut;
     }
 }

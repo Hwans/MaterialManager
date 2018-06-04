@@ -28,6 +28,7 @@ namespace MMS
             if(ClsCommon.strAdmin != "1")
             {
                 this.Size = new System.Drawing.Size(647, 426);
+                btnOrderCancel.Visible = false;
             }
         }
 
@@ -230,6 +231,55 @@ namespace MMS
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnOrderCancel_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("취소하시겠습니까?", this.Text, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    saveOrder();
+                    MessageBox.Show("취소하였습니다.");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void cancelOrder()
+        {
+            try
+            {
+                String sql = "";
+                sql = sql + " UPDATE TB_ORDER SET  ";
+                sql = sql + " QTY2=0, ";
+                sql = sql + " ETC3='', ";
+                sql = sql + " STATUS=1 ";
+                sql = sql + " WHERE SEQ=@SEQ ";
+
+                conn.Open();
+
+                MySqlCommand oCommand = new MySqlCommand();
+                oCommand.Connection = conn;
+                oCommand.CommandText = sql;
+                oCommand.Parameters.Add("@SEQ", MySqlDbType.Int16, 11);
+
+                oCommand.Parameters[0].Value = txtSEQ.Text;
+                oCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }
