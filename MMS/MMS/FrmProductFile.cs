@@ -85,19 +85,19 @@ namespace MMS
                     //
                     oRow = oDt.NewRow();
 
-                    if (oRange.Cells[iRow, 1] != null)
+                    if (oRange.Cells[iRow, 1].Value2 != null)
                     {
                         oRow["상품코드"] = oRange.Cells[iRow, 1].Value2.ToString();
                     }
-                    if (oRange.Cells[iRow, 3] != null)
+                    if (oRange.Cells[iRow, 3].Value2 != null)
                     {
                         oRow["상품명"] = oRange.Cells[iRow, 3].Value2.ToString();
                     }
-                    if (oRange.Cells[iRow, 5] != null)
+                    if (oRange.Cells[iRow, 5].Value2 != null)
                     {
                         oRow["옵션"] = oRange.Cells[iRow, 5].Value2.ToString();
                     }
-                    if (oRange.Cells[iRow, 6] != null)
+                    if (oRange.Cells[iRow, 6].Value2 != null)
                     {
                         oRow["이미지"] = oRange.Cells[iRow, 6].Value2.ToString();
                     }
@@ -210,7 +210,7 @@ namespace MMS
                 }
                 String[] arryOptions = options.Split(new string[] { "//" }, StringSplitOptions.None);
 
-                if (arryOptions.Length > 0)
+                if (arryOptions.Length > 1)
                 {
                     int iStart = 0;
                     int iEnd = 0;
@@ -237,7 +237,13 @@ namespace MMS
                 }
                 else
                 {
-                    String option = arryOptions[0].Substring(arryOptions[0].IndexOf("{") + 1, arryOptions[0].IndexOf("}"));
+                    int iStart = 0;
+                    int iEnd = 0;
+
+                    iStart = arryOptions[0].IndexOf("{");
+                    iEnd = arryOptions[0].IndexOf("}");
+
+                    String option = arryOptions[0].Substring(iStart + 1, iEnd - iStart - 1);
                     String[] arryTmp = option.Split('|');
                     arryOption = new String[arryTmp.Length];
                     for (int i = 0; i < arryTmp.Length; i++)

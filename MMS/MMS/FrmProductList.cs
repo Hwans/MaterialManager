@@ -420,12 +420,14 @@ namespace MMS
 
                 oCommand.Parameters[0].Value = txtSEQ.Text;
                 oCommand.ExecuteNonQuery();
-
-                conn.Close();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -442,12 +444,13 @@ namespace MMS
 
                 oCommand.Parameters[0].Value = txtSEQ.Text;
                 oCommand.ExecuteNonQuery();
-
-                conn.Close();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            {
+                conn.Close();
             }
         }
 
