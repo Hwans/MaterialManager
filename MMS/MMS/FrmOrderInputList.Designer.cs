@@ -192,7 +192,6 @@
             this.Col4.HeaderText = "발주상태";
             this.Col4.Name = "Col4";
             this.Col4.ReadOnly = true;
-            this.Col4.Visible = false;
             // 
             // Col5
             // 

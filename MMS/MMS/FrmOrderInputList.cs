@@ -76,19 +76,26 @@ namespace MMS
                         orderGrid[0, idx].Value = idx + 1;
                         orderGrid[1, idx].Value = oRows["P_TITLE"];
                         orderGrid[2, idx].Value = oRows["PO_TITLE"];
-                        orderGrid[3, idx].Value = "";
+                        orderGrid[3, idx].Value = getStatus(oRows["STATUS"].ToString());
                         orderGrid[4, idx].Value = getStep(oRows["STEP"].ToString());
-                        orderGrid[5, idx].Value = oRows["QTY2"].ToString();
-                        orderGrid[5, idx].Value = oRows["ETC"];
-                        orderGrid[6, idx].Value = oRows["REQUEST_DATE"];
-                        orderGrid[7, idx].Value = oRows["USER_NAME"];
-                        orderGrid[8, idx].Value = oRows["SEQ"];
-                        orderGrid[9, idx].Value = oRows["PSEQ"];
-                        orderGrid[10, idx].Value = oRows["PSSEQ"];
+                        orderGrid[5, idx].Value = oRows["QTY2"];
+                        orderGrid[6, idx].Value = oRows["ETC"];
+                        orderGrid[7, idx].Value = oRows["REQUEST_DATE"];
+                        orderGrid[8, idx].Value = oRows["USER_NAME"];
+                        orderGrid[9, idx].Value = oRows["SEQ"];
+                        orderGrid[10, idx].Value = oRows["PSEQ"];
+                        orderGrid[11, idx].Value = oRows["PSSEQ"];
 
-                        if(oRows["QTY"].ToString() != oRows["QTY2"].ToString())
+                        if(oRows["QTY2"].ToString() != "0")
                         {
-                            orderGrid.Rows[idx].DefaultCellStyle.BackColor = Color.LightBlue;
+                            if(oRows["QTY"].ToString() != oRows["QTY2"].ToString())
+                            {
+                                orderGrid.Rows[idx].DefaultCellStyle.BackColor = Color.PaleVioletRed;
+                            }
+                            else
+                            {
+                                orderGrid.Rows[idx].DefaultCellStyle.BackColor = Color.LightBlue;
+                            }
                         }
 
                         idx = idx + 1;
@@ -101,6 +108,31 @@ namespace MMS
             }
         }
 
+        private String getStatus(String sCode)
+        {
+            String sReturn = "";
+            try
+            {
+                switch (sCode)
+                {
+                    case "1":
+                        sReturn = "발주요청";
+                        break;
+                    case "2":
+                        sReturn = "발주완료";
+                        break;
+                    case "3":
+                        sReturn = "입고완료";
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return sReturn;
+        }
+
         private DataSet getOrderList(String pSDate, String pEDate)
         {
             DataSet oDs = null;
@@ -109,7 +141,7 @@ namespace MMS
                 oDs = new DataSet();
 
                 string sql = "";
-                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.ETC, O.REQUEST_DATE, O.USER_NAME, O.QTY, 0.QTY2 ";
+                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, P.TITLE AS P_TITLE, PO.TITLE AS PO_TITLE, O.STEP, O.STATUS, O.ETC, O.REQUEST_DATE, O.USER_NAME, O.QTY, O.QTY2 ";
                 sql = sql + " FROM TB_ORDER O ";
                 sql = sql + " LEFT JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
                 sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";
@@ -153,17 +185,20 @@ namespace MMS
 
         private void orderGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            String sSEQ = orderGrid[8, e.RowIndex].Value.ToString();
-            FrmInputDetail frmInputDetail = new FrmInputDetail(sSEQ);
-            frmInputDetail.ShowDialog();
+            if(orderGrid[9, e.RowIndex].Value != null)
+            {
+                String sSEQ = orderGrid[9, e.RowIndex].Value.ToString();
+                FrmInputDetail frmInputDetail = new FrmInputDetail(sSEQ);
+                frmInputDetail.ShowDialog();
 
-            try
-            {
-                selectOrderList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    selectOrderList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
