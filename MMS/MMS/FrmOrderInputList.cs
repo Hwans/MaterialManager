@@ -25,7 +25,11 @@ namespace MMS
             try
             {
                 conn = new MySqlConnection(ClsCommon.strConn);
+                //
                 sDate.Value = DateTime.Today.AddDays(-3);
+                //
+                cboQuery.SelectedIndex = 0;
+                //
                 selectOrderList();
             }
             catch (Exception ex)
@@ -154,6 +158,8 @@ namespace MMS
                     sql = sql + " WHERE O.STATUS = 2 ";
                 }
                 sql = sql + " AND DATE(O.REQUEST_DATE) BETWEEN '" + pSDate + "' AND '" + pEDate + "' ";
+                sql = sql + " AND P.TITLE LIKE '%" + txtQuery.Text + "%' ";
+                sql = sql + " ORDER BY O.REQUEST_DATE, P.TITLE ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(oDs, "TB_ORDER");
             }

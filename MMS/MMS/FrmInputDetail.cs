@@ -239,7 +239,7 @@ namespace MMS
             {
                 try
                 {
-                    saveOrder();
+                    cancelOrder();
                     MessageBox.Show("취소하였습니다.");
                     this.Close();
                 }

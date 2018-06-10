@@ -131,6 +131,9 @@ namespace MMS
                     cboOption.SelectedValue = oRows["PSSEQ"].ToString();
                     cboStep.SelectedValue = oRows["STEP"].ToString();
                     txtETC.Text = oRows["ETC"].ToString();
+
+                    txtQty.Text = oRows["QTY"].ToString();
+                    txtEtc2.Text = oRows["ETC2"].ToString();
                 }
             }
             catch (Exception ex)
@@ -147,7 +150,7 @@ namespace MMS
                 ds = new DataSet();
 
                 String sql = "";
-                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, O.STEP, O.ETC, P.CODE, P.TITLE, P.TITLE2, P.IMAGE, PO.TITLE AS OPTION_TITLE ";
+                sql = sql + " SELECT O.SEQ, O.PSEQ, O.PSSEQ, O.STEP, O.ETC, P.CODE, P.TITLE, P.TITLE2, P.IMAGE, PO.TITLE AS OPTION_TITLE, O.QTY, O.ETC2 ";
                 sql = sql + " FROM TB_ORDER O ";
                 sql = sql + " LEFT JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
                 sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";

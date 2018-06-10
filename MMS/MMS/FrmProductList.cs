@@ -37,40 +37,50 @@ namespace MMS
             {
                 oDs = getCompanyList();
 
-                Dictionary<string, string> dicOption = new Dictionary<string, string>();
-                foreach (DataRow options in oDs.Tables[0].Rows)
-                {
-                    dicOption.Add(options["SEQ"].ToString(), options["BIZ_NAME"].ToString());
-                }
+                Dictionary<string, string> dicOption = getCompnayDictionary(oDs);
+                Dictionary<string, string> dicOption2 = getCompnayDictionary(oDs);
+                Dictionary<string, string> dicOption3 = getCompnayDictionary(oDs);
+
+
+                cboCompany.DataSource = new BindingSource(dicOption, null);
+                cboCompany.DisplayMember = "Value";
+                cboCompany.ValueMember = "Key";
+                cboCompany.Text = "";
+
                 //
-                if (dicOption.Count > 0)
-                {
-                    //
-                    cboCompany.DataSource = new BindingSource(dicOption, null);
-                    cboCompany.DisplayMember = "Value";
-                    cboCompany.ValueMember = "Key";
-                    cboCompany.Text = "";
+                cboCompany2.DataSource = new BindingSource(dicOption2, null);
+                cboCompany2.DisplayMember = "Value";
+                cboCompany2.ValueMember = "Key";
+                cboCompany2.Text = "";
 
-                    //
-                    cboCompany2.DataSource = new BindingSource(dicOption, null);
-                    cboCompany2.DisplayMember = "Value";
-                    cboCompany2.ValueMember = "Key";
-                    cboCompany2.Text = "";
-
-                    //
-                    cboCompany3.DataSource = new BindingSource(dicOption, null);
-                    cboCompany3.DisplayMember = "Value";
-                    cboCompany3.ValueMember = "Key";
-                    cboCompany3.Text = "";
-                }
+                //
+                cboCompany3.DataSource = new BindingSource(dicOption3, null);
+                cboCompany3.DisplayMember = "Value";
+                cboCompany3.ValueMember = "Key";
+                cboCompany3.Text = "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
 
-
+        private Dictionary<string, string> getCompnayDictionary(DataSet pDs)
+        {
+            Dictionary<string, string> dicOption = new Dictionary<string, string>();
             
+            //
+            if (pDs.Tables[0].Rows.Count > 0)
+            {
+                dicOption.Add("0", " ");
+            }
+
+            foreach (DataRow options in pDs.Tables[0].Rows)
+            {
+                dicOption.Add(options["SEQ"].ToString(), options["BIZ_NAME"].ToString());
+            }
+
+            return dicOption;
         }
 
         private DataSet getCompanyList()
@@ -184,33 +194,40 @@ namespace MMS
                 initText();
 
                 //
-                String sSeq = itemGrid[7, e.RowIndex].Value.ToString();
-                oDs = getProduct(sSeq);
-                if (oDs.Tables.Count > 0)
+                if (itemGrid[7, e.RowIndex].Value != null)
                 {
-                    DataRow oRows = oDs.Tables[0].Rows[0];
-                    txtSEQ.Text = oRows["SEQ"].ToString();
-                    txtCode.Text = oRows["CODE"].ToString();
-                    txtTitle.Text = oRows["TITLE"].ToString();
-                    txtTitle2.Text = oRows["TITLE2"].ToString();
-                    txtSize.Text = oRows["SIZE"].ToString();
-                    txtImage.Text = oRows["IMAGE"].ToString();
-
-                    if (oRows["IMAGE"].ToString() != "")
+                    String sSeq = itemGrid[7, e.RowIndex].Value.ToString();
+                    oDs = getProduct(sSeq);
+                    if (oDs.Tables.Count > 0)
                     {
-                        try
-                        {
-                            String imageURL = "https://retromom.cafe24.com/web/product/big/" + oRows["IMAGE"].ToString();
-                            pImage.Load(imageURL);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.Write(ex.Message);
-                        }
-                    }
+                        DataRow oRows = oDs.Tables[0].Rows[0];
+                        txtSEQ.Text = oRows["SEQ"].ToString();
+                        txtCode.Text = oRows["CODE"].ToString();
+                        txtTitle.Text = oRows["TITLE"].ToString();
+                        txtTitle2.Text = oRows["TITLE2"].ToString();
+                        txtSize.Text = oRows["SIZE"].ToString();
+                        txtImage.Text = oRows["IMAGE"].ToString();
 
-                    //
-                    selectProductOption();
+                        cboCompany.SelectedValue = oRows["BIZ_SEQ"].ToString();
+                        cboCompany2.SelectedValue = oRows["BIZ_SEQ2"].ToString();
+                        cboCompany3.SelectedValue = oRows["BIZ_SEQ3"].ToString();
+
+                        if (oRows["IMAGE"].ToString() != "")
+                        {
+                            try
+                            {
+                                String imageURL = "https://retromom.cafe24.com/web/product/big/" + oRows["IMAGE"].ToString();
+                                pImage.Load(imageURL);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.Write(ex.Message);
+                            }
+                        }
+
+                        //
+                        selectProductOption();
+                    }
                 }
             }
             catch (Exception ex)
@@ -227,7 +244,7 @@ namespace MMS
                 ds = new DataSet();
 
                 String sql = "";
-                sql = sql + " SELECT P.SEQ, P.CODE, P.TITLE, P.TITLE2, P.SIZE, P.IMAGE, PO.SSEQ, PO.TITLE AS OPTION_TITLE, PO.SIZE AS OPTION_SIZE, PO.ETC AS OPTION_ETC ";
+                sql = sql + " SELECT P.SEQ, P.CODE, P.TITLE, P.TITLE2, P.SIZE, P.IMAGE, PO.SSEQ, PO.TITLE AS OPTION_TITLE, PO.SIZE AS OPTION_SIZE, PO.ETC AS OPTION_ETC, P.BIZ_SEQ, P.BIZ_SEQ2, P.BIZ_SEQ3 ";
                 sql = sql + " FROM TB_PRODUCT P ";
                 sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON P.SEQ = PO.SEQ ";
                 sql = sql + " WHERE P.SEQ = '" + pSeq + "' ";
@@ -272,6 +289,8 @@ namespace MMS
                         //
                         initText();
                         //
+                        optionGrid.DataSource = null;
+                        //
                         selectOrderList();
                     }
                     catch (Exception ex)
@@ -287,6 +306,8 @@ namespace MMS
                         MessageBox.Show("저장하였습니다.");
                         //
                         initText();
+                        //
+                        optionGrid.DataSource = null;
                         //
                         selectOrderList();
                     }
@@ -325,12 +346,14 @@ namespace MMS
                 oCommand.Parameters[6].Value = ((KeyValuePair<String, String>)cboCompany2.SelectedItem).Key;
                 oCommand.Parameters[7].Value = ((KeyValuePair<String, String>)cboCompany3.SelectedItem).Key;
                 oCommand.ExecuteNonQuery();
-
-                conn.Close();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -375,12 +398,14 @@ namespace MMS
                 oCommand.Parameters[7].Value = ((KeyValuePair<String, String>)cboCompany3.SelectedItem).Key;
                 oCommand.Parameters[8].Value = txtSEQ.Text;
                 oCommand.ExecuteNonQuery();
-
-                conn.Close();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

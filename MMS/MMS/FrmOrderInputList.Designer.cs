@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.orderGrid = new System.Windows.Forms.DataGridView();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.eDate = new System.Windows.Forms.DateTimePicker();
-            this.sDate = new System.Windows.Forms.DateTimePicker();
-            this.lblSepa = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.pnlTop = new System.Windows.Forms.Panel();
-            this.chkView = new System.Windows.Forms.CheckBox();
             this.Col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +41,16 @@
             this.Col9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.eDate = new System.Windows.Forms.DateTimePicker();
+            this.sDate = new System.Windows.Forms.DateTimePicker();
+            this.lblSepa = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.chkView = new System.Windows.Forms.CheckBox();
+            this.txtQuery = new System.Windows.Forms.TextBox();
+            this.cboQuery = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             this.pnlTop.SuspendLayout();
             this.SuspendLayout();
@@ -79,92 +81,6 @@
             this.orderGrid.Size = new System.Drawing.Size(1008, 301);
             this.orderGrid.TabIndex = 3;
             this.orderGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGrid_CellDoubleClick);
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Location = new System.Drawing.Point(300, 11);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(74, 26);
-            this.btnSelect.TabIndex = 4;
-            this.btnSelect.Text = "조회";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(928, 11);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(74, 26);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "종료";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // eDate
-            // 
-            this.eDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.eDate.Location = new System.Drawing.Point(184, 13);
-            this.eDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.eDate.Name = "eDate";
-            this.eDate.Size = new System.Drawing.Size(110, 21);
-            this.eDate.TabIndex = 1;
-            // 
-            // sDate
-            // 
-            this.sDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.sDate.Location = new System.Drawing.Point(48, 13);
-            this.sDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sDate.Name = "sDate";
-            this.sDate.Size = new System.Drawing.Size(110, 21);
-            this.sDate.TabIndex = 1;
-            // 
-            // lblSepa
-            // 
-            this.lblSepa.AutoSize = true;
-            this.lblSepa.Location = new System.Drawing.Point(164, 18);
-            this.lblSepa.Name = "lblSepa";
-            this.lblSepa.Size = new System.Drawing.Size(14, 12);
-            this.lblSepa.TabIndex = 0;
-            this.lblSepa.Text = "~";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(10, 18);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(29, 12);
-            this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "날짜";
-            // 
-            // pnlTop
-            // 
-            this.pnlTop.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pnlTop.Controls.Add(this.chkView);
-            this.pnlTop.Controls.Add(this.btnSelect);
-            this.pnlTop.Controls.Add(this.btnExit);
-            this.pnlTop.Controls.Add(this.eDate);
-            this.pnlTop.Controls.Add(this.sDate);
-            this.pnlTop.Controls.Add(this.lblSepa);
-            this.pnlTop.Controls.Add(this.lblDate);
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(0, 0);
-            this.pnlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1008, 45);
-            this.pnlTop.TabIndex = 2;
-            // 
-            // chkView
-            // 
-            this.chkView.AutoSize = true;
-            this.chkView.Location = new System.Drawing.Point(389, 18);
-            this.chkView.Name = "chkView";
-            this.chkView.Size = new System.Drawing.Size(106, 16);
-            this.chkView.TabIndex = 5;
-            this.chkView.Text = "입고(완료)표시";
-            this.chkView.UseVisualStyleBackColor = true;
             // 
             // Col1
             // 
@@ -245,6 +161,113 @@
             this.Col11.ReadOnly = true;
             this.Col11.Visible = false;
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(611, 10);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(74, 26);
+            this.btnSelect.TabIndex = 4;
+            this.btnSelect.Text = "조회";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Location = new System.Drawing.Point(928, 11);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(74, 26);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "종료";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // eDate
+            // 
+            this.eDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.eDate.Location = new System.Drawing.Point(173, 13);
+            this.eDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eDate.Name = "eDate";
+            this.eDate.Size = new System.Drawing.Size(110, 21);
+            this.eDate.TabIndex = 1;
+            // 
+            // sDate
+            // 
+            this.sDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.sDate.Location = new System.Drawing.Point(48, 13);
+            this.sDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sDate.Name = "sDate";
+            this.sDate.Size = new System.Drawing.Size(110, 21);
+            this.sDate.TabIndex = 1;
+            // 
+            // lblSepa
+            // 
+            this.lblSepa.AutoSize = true;
+            this.lblSepa.Location = new System.Drawing.Point(158, 18);
+            this.lblSepa.Name = "lblSepa";
+            this.lblSepa.Size = new System.Drawing.Size(14, 12);
+            this.lblSepa.TabIndex = 0;
+            this.lblSepa.Text = "~";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(10, 18);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(29, 12);
+            this.lblDate.TabIndex = 0;
+            this.lblDate.Text = "날짜";
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnlTop.Controls.Add(this.txtQuery);
+            this.pnlTop.Controls.Add(this.cboQuery);
+            this.pnlTop.Controls.Add(this.chkView);
+            this.pnlTop.Controls.Add(this.btnSelect);
+            this.pnlTop.Controls.Add(this.btnExit);
+            this.pnlTop.Controls.Add(this.eDate);
+            this.pnlTop.Controls.Add(this.sDate);
+            this.pnlTop.Controls.Add(this.lblSepa);
+            this.pnlTop.Controls.Add(this.lblDate);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(1008, 45);
+            this.pnlTop.TabIndex = 2;
+            // 
+            // chkView
+            // 
+            this.chkView.AutoSize = true;
+            this.chkView.Location = new System.Drawing.Point(700, 17);
+            this.chkView.Name = "chkView";
+            this.chkView.Size = new System.Drawing.Size(106, 16);
+            this.chkView.TabIndex = 5;
+            this.chkView.Text = "입고(완료)표시";
+            this.chkView.UseVisualStyleBackColor = true;
+            // 
+            // txtQuery
+            // 
+            this.txtQuery.Location = new System.Drawing.Point(393, 13);
+            this.txtQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtQuery.Name = "txtQuery";
+            this.txtQuery.Size = new System.Drawing.Size(214, 21);
+            this.txtQuery.TabIndex = 8;
+            // 
+            // cboQuery
+            // 
+            this.cboQuery.FormattingEnabled = true;
+            this.cboQuery.Items.AddRange(new object[] {
+            "상품명"});
+            this.cboQuery.Location = new System.Drawing.Point(301, 13);
+            this.cboQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboQuery.Name = "cboQuery";
+            this.cboQuery.Size = new System.Drawing.Size(90, 20);
+            this.cboQuery.TabIndex = 7;
+            // 
             // FrmOrderInputList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -284,5 +307,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Col9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col11;
+        private System.Windows.Forms.TextBox txtQuery;
+        private System.Windows.Forms.ComboBox cboQuery;
     }
 }

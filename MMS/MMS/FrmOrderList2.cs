@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace MMS
 {
@@ -25,7 +28,11 @@ namespace MMS
             try
             {
                 conn = new MySqlConnection(ClsCommon.strConn);
+                //
                 sDate.Value = DateTime.Today.AddDays(-3);
+                //
+                cboQuery.SelectedIndex = 0;
+                //
                 selectOrderList();
             }
             catch (Exception ex)
@@ -134,8 +141,17 @@ namespace MMS
                 sql = sql + " LEFT JOIN TB_PRODUCT P ON O.PSEQ = P.SEQ ";
                 sql = sql + " LEFT JOIN TB_PRODUCT_OPTION PO ON O.PSSEQ = PO.SSEQ ";
                 sql = sql + " LEFT JOIN TB_COMPANY C ON P.BIZ_SEQ = C.SEQ ";
-                sql = sql + " WHERE O.STATUS IN (1, 2) ";
+                if(chkView.Checked == true)
+                {
+                    sql = sql + " WHERE O.STATUS IN (1) ";
+                }
+                else
+                {
+                    sql = sql + " WHERE O.STATUS IN (1, 2) ";
+                }
                 sql = sql + " AND DATE(O.REQUEST_DATE) BETWEEN '" + pSDate + "' AND '" + pEDate + "' ";
+                sql = sql + " AND P.TITLE LIKE '%" + txtQuery.Text + "%' ";
+                sql = sql + " ORDER BY O.REQUEST_DATE, P.TITLE ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(oDs, "TB_ORDER");
             }
@@ -201,6 +217,76 @@ namespace MMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+
+            saveFileDialog1.FileName = "TempName";
+            saveFileDialog1.DefaultExt = "xls";
+            saveFileDialog1.Filter = "Excel files (*.xls)|*.xls";
+            saveFileDialog1.InitialDirectory = "c:\\";
+
+            DialogResult result = saveFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                int num = 0;
+                object missingType = Type.Missing;
+
+                Excel.Application objApp;
+                Excel._Workbook objBook;
+                Excel.Workbooks objBooks;
+                Excel.Sheets objSheets;
+                Excel._Worksheet objSheet;
+                Excel.Range range;
+
+                string[] headers = new string[orderGrid.ColumnCount];
+                string[] columns = new string[orderGrid.ColumnCount];
+
+                for (int c = 0; c < orderGrid.ColumnCount; c++)
+                {
+                    headers[c] = orderGrid.Rows[0].Cells[c].OwningColumn.HeaderText.ToString();
+                    num = c + 65;
+                    columns[c] = Convert.ToString((char)num);
+                }
+
+                try
+                {
+                    objApp = new Excel.Application();
+                    objBooks = objApp.Workbooks;
+                    objBook = objBooks.Add(Missing.Value);
+                    objSheets = objBook.Worksheets;
+                    objSheet = (Excel._Worksheet)objSheets.get_Item(1);
+
+                    for (int i = 0; i < orderGrid.RowCount - 1; i++)
+                    {
+                        for (int j = 0; j < orderGrid.ColumnCount; j++)
+                        {
+                            range = objSheet.get_Range(columns[j] + Convert.ToString(i + 2), Missing.Value);
+                            range.set_Value(Missing.Value, orderGrid.Rows[i].Cells[j].Value.ToString());
+                        }
+                    }
+
+                    objApp.Visible = false;
+                    objApp.UserControl = false;
+
+                    objBook.SaveAs(saveFileDialog1.FileName,
+                                    Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal,
+                                    missingType, missingType, missingType, missingType,
+                                    Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange,
+                                    missingType, missingType, missingType, missingType, missingType);
+                    objBook.Close(false, missingType, missingType);
+
+                    Cursor.Current = Cursors.Default;
+
+                    MessageBox.Show("Save Success!!!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
