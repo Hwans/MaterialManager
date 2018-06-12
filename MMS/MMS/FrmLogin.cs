@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace MMS
 {
@@ -18,12 +19,35 @@ namespace MMS
             InitializeComponent();
         }
 
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            txtID.Text = getUserID();
+        }
+
+        private String getUserID()
+        {
+            String retValue = "";
+            try
+            {
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                retValue = config.AppSettings.Settings["UserID"].Value;
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            return retValue;
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string id = txtID.Text;
             string pass = txtPWD.Text;
             if (IsLoggedIn(id, pass))
             {
+                //
+                AppConfiguration.SetAppConfig("UserID", txtID.Text);
+
                 DialogResult = DialogResult.OK;
             }
         }
@@ -119,5 +143,6 @@ namespace MMS
             FrmConfig frmConfig = new FrmConfig();
             frmConfig.ShowDialog();
         }
+
     }
 }
