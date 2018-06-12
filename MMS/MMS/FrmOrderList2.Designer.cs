@@ -51,11 +51,11 @@
             this.lblSepa = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.txtQuery = new System.Windows.Forms.TextBox();
+            this.cboQuery = new System.Windows.Forms.ComboBox();
             this.chkView = new System.Windows.Forms.CheckBox();
             this.btnExcel = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.txtQuery = new System.Windows.Forms.TextBox();
-            this.cboQuery = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             this.pnlTop.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,7 @@
             this.orderGrid.Size = new System.Drawing.Size(1254, 301);
             this.orderGrid.TabIndex = 3;
             this.orderGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGrid_CellDoubleClick);
+            this.orderGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.orderGrid_KeyDown);
             // 
             // Col1
             // 
@@ -272,6 +273,25 @@
             this.pnlTop.Size = new System.Drawing.Size(1254, 45);
             this.pnlTop.TabIndex = 2;
             // 
+            // txtQuery
+            // 
+            this.txtQuery.Location = new System.Drawing.Point(390, 13);
+            this.txtQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtQuery.Name = "txtQuery";
+            this.txtQuery.Size = new System.Drawing.Size(214, 21);
+            this.txtQuery.TabIndex = 10;
+            // 
+            // cboQuery
+            // 
+            this.cboQuery.FormattingEnabled = true;
+            this.cboQuery.Items.AddRange(new object[] {
+            "상품명"});
+            this.cboQuery.Location = new System.Drawing.Point(298, 13);
+            this.cboQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboQuery.Name = "cboQuery";
+            this.cboQuery.Size = new System.Drawing.Size(90, 20);
+            this.cboQuery.TabIndex = 9;
+            // 
             // chkView
             // 
             this.chkView.AutoSize = true;
@@ -294,25 +314,6 @@
             this.btnExcel.UseVisualStyleBackColor = true;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
-            // txtQuery
-            // 
-            this.txtQuery.Location = new System.Drawing.Point(390, 13);
-            this.txtQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtQuery.Name = "txtQuery";
-            this.txtQuery.Size = new System.Drawing.Size(214, 21);
-            this.txtQuery.TabIndex = 10;
-            // 
-            // cboQuery
-            // 
-            this.cboQuery.FormattingEnabled = true;
-            this.cboQuery.Items.AddRange(new object[] {
-            "상품명"});
-            this.cboQuery.Location = new System.Drawing.Point(298, 13);
-            this.cboQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboQuery.Name = "cboQuery";
-            this.cboQuery.Size = new System.Drawing.Size(90, 20);
-            this.cboQuery.TabIndex = 9;
-            // 
             // FrmOrderList2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -323,6 +324,7 @@
             this.Name = "FrmOrderList2";
             this.Text = "상품발주::관리자";
             this.Load += new System.EventHandler(this.FrmOrderList2_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmOrderList2_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();

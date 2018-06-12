@@ -164,6 +164,7 @@
             this.orderGrid.Size = new System.Drawing.Size(1008, 301);
             this.orderGrid.TabIndex = 1;
             this.orderGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGrid_CellDoubleClick);
+            this.orderGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.orderGrid_KeyDown);
             // 
             // Col1
             // 

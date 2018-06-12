@@ -48,9 +48,9 @@
             this.lblSepa = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.chkView = new System.Windows.Forms.CheckBox();
             this.txtQuery = new System.Windows.Forms.TextBox();
             this.cboQuery = new System.Windows.Forms.ComboBox();
+            this.chkView = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             this.pnlTop.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +81,7 @@
             this.orderGrid.Size = new System.Drawing.Size(1008, 301);
             this.orderGrid.TabIndex = 3;
             this.orderGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGrid_CellDoubleClick);
+            this.orderGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.orderGrid_KeyDown);
             // 
             // Col1
             // 
@@ -239,16 +240,6 @@
             this.pnlTop.Size = new System.Drawing.Size(1008, 45);
             this.pnlTop.TabIndex = 2;
             // 
-            // chkView
-            // 
-            this.chkView.AutoSize = true;
-            this.chkView.Location = new System.Drawing.Point(700, 17);
-            this.chkView.Name = "chkView";
-            this.chkView.Size = new System.Drawing.Size(106, 16);
-            this.chkView.TabIndex = 5;
-            this.chkView.Text = "입고(완료)표시";
-            this.chkView.UseVisualStyleBackColor = true;
-            // 
             // txtQuery
             // 
             this.txtQuery.Location = new System.Drawing.Point(393, 13);
@@ -267,6 +258,16 @@
             this.cboQuery.Name = "cboQuery";
             this.cboQuery.Size = new System.Drawing.Size(90, 20);
             this.cboQuery.TabIndex = 7;
+            // 
+            // chkView
+            // 
+            this.chkView.AutoSize = true;
+            this.chkView.Location = new System.Drawing.Point(700, 17);
+            this.chkView.Name = "chkView";
+            this.chkView.Size = new System.Drawing.Size(106, 16);
+            this.chkView.TabIndex = 5;
+            this.chkView.Text = "입고(완료)표시";
+            this.chkView.UseVisualStyleBackColor = true;
             // 
             // FrmOrderInputList
             // 

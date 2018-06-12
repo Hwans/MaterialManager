@@ -289,5 +289,75 @@ namespace MMS
                 }
             }
         }
+
+        private void FrmOrderList2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F && Control.ModifierKeys == Keys.Control)
+            {
+                try
+                {
+                    String sText = "";
+                    FrmFindField frmFindField = new FrmFindField();
+                    if(frmFindField.ShowDialog() == DialogResult.OK)
+                    {
+                        sText = frmFindField.SearchText;
+                        if(sText != "")
+                        {
+                            int iRow = -1;
+                            foreach (DataGridViewRow row in orderGrid.Rows)
+                            {
+                                if (row.Cells[row.Index].Value.ToString().Equals(sText))
+                                {
+                                    orderGrid.Rows[row.Index].Selected = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+
+            }
+        }
+
+        private void orderGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F && Control.ModifierKeys == Keys.Control)
+            {
+                try
+                {
+                    String sText = "";
+                    FrmFindField frmFindField = new FrmFindField();
+                    if (frmFindField.ShowDialog() == DialogResult.OK)
+                    {
+                        sText = frmFindField.SearchText;
+                        if (sText != "")
+                        {
+                            foreach (DataGridViewRow row in orderGrid.Rows)
+                            {
+                                orderGrid.Rows[row.Index].Selected = false;
+                            }
+
+                            foreach (DataGridViewRow row in orderGrid.Rows)
+                            {
+                                if(row.Cells[2].Value != null && row.Cells[2].Value.ToString().Contains(sText))
+                                {
+                                    orderGrid.Rows[row.Index].Selected = true;
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+
+            }
+        }
     }
 }

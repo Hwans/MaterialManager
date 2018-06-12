@@ -80,6 +80,12 @@
     <Compile Include="FrmConfig.Designer.cs">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFindField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFindField.Designer.cs">
+      <DependentUpon>FrmFindField.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFindField.resx">
+      <DependentUpon>FrmFindField.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmImage.resx">
       <DependentUpon>FrmImage.cs</DependentUpon>

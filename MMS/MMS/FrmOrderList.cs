@@ -172,5 +172,41 @@ namespace MMS
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void orderGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F && Control.ModifierKeys == Keys.Control)
+            {
+                try
+                {
+                    String sText = "";
+                    FrmFindField frmFindField = new FrmFindField();
+                    if (frmFindField.ShowDialog() == DialogResult.OK)
+                    {
+                        sText = frmFindField.SearchText;
+                        if (sText != "")
+                        {
+                            foreach (DataGridViewRow row in orderGrid.Rows)
+                            {
+                                orderGrid.Rows[row.Index].Selected = false;
+                            }
+
+                            foreach (DataGridViewRow row in orderGrid.Rows)
+                            {
+                                if (row.Cells[1].Value != null && row.Cells[1].Value.ToString().Contains(sText))
+                                {
+                                    orderGrid.Rows[row.Index].Selected = true;
+                                }
+
+                            }
+                        }
+                    }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            }
+        }
     }
 }
