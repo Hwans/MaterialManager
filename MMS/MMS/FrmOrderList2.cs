@@ -149,6 +149,10 @@ namespace MMS
                 {
                     sql = sql + " WHERE O.STATUS IN (1, 2) ";
                 }
+                if (chkSoldOut.Checked == true)
+                {
+                    sql = sql + " AND O.EMPTY_YN = 0 ";
+                }
                 sql = sql + " AND DATE(O.REQUEST_DATE) BETWEEN '" + pSDate + "' AND '" + pEDate + "' ";
                 sql = sql + " AND P.TITLE LIKE '%" + txtQuery.Text + "%' ";
                 sql = sql + " ORDER BY O.REQUEST_DATE, P.TITLE ";
@@ -303,7 +307,6 @@ namespace MMS
                         sText = frmFindField.SearchText;
                         if(sText != "")
                         {
-                            int iRow = -1;
                             foreach (DataGridViewRow row in orderGrid.Rows)
                             {
                                 if (row.Cells[row.Index].Value.ToString().Equals(sText))

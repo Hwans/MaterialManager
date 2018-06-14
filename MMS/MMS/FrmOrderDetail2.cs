@@ -311,5 +311,11 @@ namespace MMS
                 conn.Close();
             }
         }
+
+        private void btnEditProduct_Click(object sender, EventArgs e)
+        {
+            FrmProductDetail frmProductDetail = new FrmProductDetail(txtPSEQ.Text);
+            frmProductDetail.ShowDialog();
+        }
     }
 }

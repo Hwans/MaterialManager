@@ -75,6 +75,7 @@
             this.itemGrid.RowTemplate.Height = 23;
             this.itemGrid.Size = new System.Drawing.Size(800, 294);
             this.itemGrid.TabIndex = 3;
+            this.itemGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.itemGrid_KeyDown);
             // 
             // pnlTop
             // 

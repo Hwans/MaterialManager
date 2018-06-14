@@ -49,6 +49,7 @@
             this.txtQty = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSoldOut = new System.Windows.Forms.Button();
+            this.btnEditProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -254,11 +255,24 @@
             this.btnSoldOut.UseVisualStyleBackColor = true;
             this.btnSoldOut.Click += new System.EventHandler(this.btnSoldOut_Click);
             // 
+            // btnEditProduct
+            // 
+            this.btnEditProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditProduct.Location = new System.Drawing.Point(7, 355);
+            this.btnEditProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditProduct.Name = "btnEditProduct";
+            this.btnEditProduct.Size = new System.Drawing.Size(74, 26);
+            this.btnEditProduct.TabIndex = 27;
+            this.btnEditProduct.Text = "상품수정";
+            this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
+            // 
             // FrmOrderDetail2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 392);
+            this.Controls.Add(this.btnEditProduct);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtSEQ);
@@ -311,5 +325,6 @@
         private System.Windows.Forms.TextBox txtQty;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSoldOut;
+        private System.Windows.Forms.Button btnEditProduct;
     }
 }

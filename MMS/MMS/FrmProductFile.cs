@@ -315,5 +315,10 @@ namespace MMS
                 throw ex;
             }
         }
+
+        private void itemGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
     }
 }

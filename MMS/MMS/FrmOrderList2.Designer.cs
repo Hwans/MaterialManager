@@ -56,6 +56,7 @@
             this.chkView = new System.Windows.Forms.CheckBox();
             this.btnExcel = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.chkSoldOut = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             this.pnlTop.SuspendLayout();
             this.SuspendLayout();
@@ -80,12 +81,12 @@
             this.Col11,
             this.Col13});
             this.orderGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderGrid.Location = new System.Drawing.Point(0, 45);
+            this.orderGrid.Location = new System.Drawing.Point(0, 64);
             this.orderGrid.Name = "orderGrid";
             this.orderGrid.ReadOnly = true;
             this.orderGrid.RowTemplate.Height = 23;
             this.orderGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderGrid.Size = new System.Drawing.Size(1254, 301);
+            this.orderGrid.Size = new System.Drawing.Size(1254, 282);
             this.orderGrid.TabIndex = 3;
             this.orderGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGrid_CellDoubleClick);
             this.orderGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.orderGrid_KeyDown);
@@ -257,6 +258,7 @@
             this.pnlTop.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pnlTop.Controls.Add(this.txtQuery);
             this.pnlTop.Controls.Add(this.cboQuery);
+            this.pnlTop.Controls.Add(this.chkSoldOut);
             this.pnlTop.Controls.Add(this.chkView);
             this.pnlTop.Controls.Add(this.btnExcel);
             this.pnlTop.Controls.Add(this.btnAdd);
@@ -270,7 +272,7 @@
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1254, 45);
+            this.pnlTop.Size = new System.Drawing.Size(1254, 64);
             this.pnlTop.TabIndex = 2;
             // 
             // txtQuery
@@ -295,7 +297,9 @@
             // chkView
             // 
             this.chkView.AutoSize = true;
-            this.chkView.Location = new System.Drawing.Point(690, 17);
+            this.chkView.Checked = true;
+            this.chkView.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkView.Location = new System.Drawing.Point(48, 42);
             this.chkView.Name = "chkView";
             this.chkView.Size = new System.Drawing.Size(88, 16);
             this.chkView.TabIndex = 6;
@@ -313,6 +317,18 @@
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = true;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // chkSoldOut
+            // 
+            this.chkSoldOut.AutoSize = true;
+            this.chkSoldOut.Checked = true;
+            this.chkSoldOut.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSoldOut.Location = new System.Drawing.Point(173, 42);
+            this.chkSoldOut.Name = "chkSoldOut";
+            this.chkSoldOut.Size = new System.Drawing.Size(88, 16);
+            this.chkSoldOut.TabIndex = 6;
+            this.chkSoldOut.Text = "품절건 제외";
+            this.chkSoldOut.UseVisualStyleBackColor = true;
             // 
             // FrmOrderList2
             // 
@@ -361,5 +377,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.TextBox txtQuery;
         private System.Windows.Forms.ComboBox cboQuery;
+        private System.Windows.Forms.CheckBox chkSoldOut;
     }
 }
