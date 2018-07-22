@@ -41,6 +41,21 @@ namespace MMS
             }
         }
 
+        private void txtQuery_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    selectOrderList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
         private void btnSelect_Click(object sender, EventArgs e)
         {
             try
@@ -155,7 +170,7 @@ namespace MMS
                 }
                 sql = sql + " AND DATE(O.REQUEST_DATE) BETWEEN '" + pSDate + "' AND '" + pEDate + "' ";
                 sql = sql + " AND P.TITLE LIKE '%" + txtQuery.Text + "%' ";
-                sql = sql + " ORDER BY O.REQUEST_DATE, P.TITLE ";
+                sql = sql + " ORDER BY C.BIZ_NAME, P.TITLE, O.REQUEST_DATE ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(oDs, "TB_ORDER");
             }

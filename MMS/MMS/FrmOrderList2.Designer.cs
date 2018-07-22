@@ -53,10 +53,10 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.txtQuery = new System.Windows.Forms.TextBox();
             this.cboQuery = new System.Windows.Forms.ComboBox();
+            this.chkSoldOut = new System.Windows.Forms.CheckBox();
             this.chkView = new System.Windows.Forms.CheckBox();
             this.btnExcel = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.chkSoldOut = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             this.pnlTop.SuspendLayout();
             this.SuspendLayout();
@@ -282,6 +282,7 @@
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.Size = new System.Drawing.Size(214, 21);
             this.txtQuery.TabIndex = 10;
+            this.txtQuery.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQuery_KeyDown);
             // 
             // cboQuery
             // 
@@ -293,6 +294,18 @@
             this.cboQuery.Name = "cboQuery";
             this.cboQuery.Size = new System.Drawing.Size(90, 20);
             this.cboQuery.TabIndex = 9;
+            // 
+            // chkSoldOut
+            // 
+            this.chkSoldOut.AutoSize = true;
+            this.chkSoldOut.Checked = true;
+            this.chkSoldOut.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSoldOut.Location = new System.Drawing.Point(173, 42);
+            this.chkSoldOut.Name = "chkSoldOut";
+            this.chkSoldOut.Size = new System.Drawing.Size(88, 16);
+            this.chkSoldOut.TabIndex = 6;
+            this.chkSoldOut.Text = "품절건 제외";
+            this.chkSoldOut.UseVisualStyleBackColor = true;
             // 
             // chkView
             // 
@@ -317,18 +330,6 @@
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = true;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // chkSoldOut
-            // 
-            this.chkSoldOut.AutoSize = true;
-            this.chkSoldOut.Checked = true;
-            this.chkSoldOut.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSoldOut.Location = new System.Drawing.Point(173, 42);
-            this.chkSoldOut.Name = "chkSoldOut";
-            this.chkSoldOut.Size = new System.Drawing.Size(88, 16);
-            this.chkSoldOut.TabIndex = 6;
-            this.chkSoldOut.Text = "품절건 제외";
-            this.chkSoldOut.UseVisualStyleBackColor = true;
             // 
             // FrmOrderList2
             // 

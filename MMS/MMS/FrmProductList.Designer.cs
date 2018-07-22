@@ -78,6 +78,8 @@
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.lblTitle1 = new System.Windows.Forms.Label();
+            this.lblMaxCode = new System.Windows.Forms.Label();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             this.panel1.SuspendLayout();
@@ -92,6 +94,8 @@
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnlTop.Controls.Add(this.lblMaxCode);
+            this.pnlTop.Controls.Add(this.lblTitle1);
             this.pnlTop.Controls.Add(this.txtQuery);
             this.pnlTop.Controls.Add(this.cboQuery);
             this.pnlTop.Controls.Add(this.btnSelect);
@@ -590,6 +594,26 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
+            // lblTitle1
+            // 
+            this.lblTitle1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitle1.AutoSize = true;
+            this.lblTitle1.Location = new System.Drawing.Point(780, 18);
+            this.lblTitle1.Name = "lblTitle1";
+            this.lblTitle1.Size = new System.Drawing.Size(76, 12);
+            this.lblTitle1.TabIndex = 7;
+            this.lblTitle1.Text = "Max Code : ";
+            // 
+            // lblMaxCode
+            // 
+            this.lblMaxCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMaxCode.AutoSize = true;
+            this.lblMaxCode.Location = new System.Drawing.Point(850, 18);
+            this.lblMaxCode.Name = "lblMaxCode";
+            this.lblMaxCode.Size = new System.Drawing.Size(11, 12);
+            this.lblMaxCode.TabIndex = 7;
+            this.lblMaxCode.Text = "0";
+            // 
             // FrmProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -668,5 +692,7 @@
         private System.Windows.Forms.Label lblCompany2;
         private System.Windows.Forms.ComboBox cboCompany;
         private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.Label lblMaxCode;
+        private System.Windows.Forms.Label lblTitle1;
     }
 }

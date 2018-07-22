@@ -352,5 +352,13 @@ namespace MMS
             txtBankName.Text = "";
             txtHomepage.Text = "";
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("종료할까요?", this.Text, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

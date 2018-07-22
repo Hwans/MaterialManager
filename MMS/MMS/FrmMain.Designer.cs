@@ -37,6 +37,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.OrderItemMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.InputMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputProductMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CompanyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.companyItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SystemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,8 @@
             this.tabForms = new System.Windows.Forms.TabControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.inputProductMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.inputProductMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -102,29 +104,38 @@
             // OrderItemMenuItem
             // 
             this.OrderItemMenuItem.Name = "OrderItemMenuItem";
-            this.OrderItemMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OrderItemMenuItem.Size = new System.Drawing.Size(166, 22);
             this.OrderItemMenuItem.Text = "상품발주";
             this.OrderItemMenuItem.Click += new System.EventHandler(this.OrderItemMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
             // 
             // OrderItemMenuItem2
             // 
             this.OrderItemMenuItem2.Name = "OrderItemMenuItem2";
-            this.OrderItemMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.OrderItemMenuItem2.Size = new System.Drawing.Size(166, 22);
             this.OrderItemMenuItem2.Text = "상품발주(관리자)";
             this.OrderItemMenuItem2.Click += new System.EventHandler(this.OrderItemMenuItem2_Click);
             // 
             // InputMenuItem
             // 
             this.InputMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inputProductMenuItem});
+            this.inputProductMenuItem,
+            this.toolStripSeparator2,
+            this.inputProductMenuItem2});
             this.InputMenuItem.Name = "InputMenuItem";
             this.InputMenuItem.Size = new System.Drawing.Size(67, 20);
             this.InputMenuItem.Text = "입고관리";
+            // 
+            // inputProductMenuItem
+            // 
+            this.inputProductMenuItem.Name = "inputProductMenuItem";
+            this.inputProductMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inputProductMenuItem.Text = "상품입고";
+            this.inputProductMenuItem.Click += new System.EventHandler(this.inputProductMenuItem_Click);
             // 
             // CompanyMenuItem
             // 
@@ -137,7 +148,7 @@
             // companyItemMenuItem
             // 
             this.companyItemMenuItem.Name = "companyItemMenuItem";
-            this.companyItemMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.companyItemMenuItem.Size = new System.Drawing.Size(180, 22);
             this.companyItemMenuItem.Text = "거래처등록";
             this.companyItemMenuItem.Click += new System.EventHandler(this.companyItemMenuItem_Click);
             // 
@@ -198,12 +209,17 @@
             this.statusName.Size = new System.Drawing.Size(39, 17);
             this.statusName.Text = "Name";
             // 
-            // inputProductMenuItem
+            // toolStripSeparator2
             // 
-            this.inputProductMenuItem.Name = "inputProductMenuItem";
-            this.inputProductMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.inputProductMenuItem.Text = "상품입고";
-            this.inputProductMenuItem.Click += new System.EventHandler(this.inputProductMenuItem_Click);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // inputProductMenuItem2
+            // 
+            this.inputProductMenuItem2.Name = "inputProductMenuItem2";
+            this.inputProductMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.inputProductMenuItem2.Text = "상품입고::관리자";
+            this.inputProductMenuItem2.Click += new System.EventHandler(this.inputProductMenuItem2_Click);
             // 
             // FrmMain
             // 
@@ -250,5 +266,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem OrderItemMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem inputProductMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem inputProductMenuItem2;
     }
 }

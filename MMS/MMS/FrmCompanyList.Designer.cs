@@ -73,21 +73,21 @@
             // 
             // txtSEQ
             // 
-            this.txtSEQ.Location = new System.Drawing.Point(48, 321);
+            this.txtSEQ.Location = new System.Drawing.Point(42, 257);
             this.txtSEQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSEQ.Name = "txtSEQ";
-            this.txtSEQ.Size = new System.Drawing.Size(58, 25);
+            this.txtSEQ.Size = new System.Drawing.Size(51, 21);
             this.txtSEQ.TabIndex = 18;
             this.txtSEQ.Visible = false;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCancel.Location = new System.Drawing.Point(295, 315);
+            this.btnCancel.Location = new System.Drawing.Point(258, 252);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(85, 32);
-            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Size = new System.Drawing.Size(74, 26);
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -95,11 +95,11 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnDelete.Location = new System.Drawing.Point(203, 315);
+            this.btnDelete.Location = new System.Drawing.Point(178, 252);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(85, 32);
-            this.btnDelete.TabIndex = 16;
+            this.btnDelete.Size = new System.Drawing.Size(74, 26);
+            this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -108,21 +108,20 @@
             // 
             this.splitter1.BackColor = System.Drawing.Color.DimGray;
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(713, 56);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.splitter1.Location = new System.Drawing.Point(624, 45);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(6, 570);
+            this.splitter1.Size = new System.Drawing.Size(5, 456);
             this.splitter1.TabIndex = 9;
             this.splitter1.TabStop = false;
             // 
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSave.Location = new System.Drawing.Point(113, 315);
+            this.btnSave.Location = new System.Drawing.Point(99, 252);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(85, 32);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.Size = new System.Drawing.Size(74, 26);
+            this.btnSave.TabIndex = 12;
             this.btnSave.Text = "저장";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -131,28 +130,28 @@
             // 
             this.txtMobile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMobile.Location = new System.Drawing.Point(94, 142);
+            this.txtMobile.Location = new System.Drawing.Point(82, 114);
             this.txtMobile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(325, 25);
-            this.txtMobile.TabIndex = 9;
+            this.txtMobile.Size = new System.Drawing.Size(285, 21);
+            this.txtMobile.TabIndex = 7;
             // 
             // txtTel
             // 
             this.txtTel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTel.Location = new System.Drawing.Point(94, 111);
+            this.txtTel.Location = new System.Drawing.Point(82, 89);
             this.txtTel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(325, 25);
-            this.txtTel.TabIndex = 9;
+            this.txtTel.Size = new System.Drawing.Size(285, 21);
+            this.txtTel.TabIndex = 6;
             // 
             // lblMobile
             // 
             this.lblMobile.AutoSize = true;
-            this.lblMobile.Location = new System.Drawing.Point(13, 146);
+            this.lblMobile.Location = new System.Drawing.Point(11, 117);
             this.lblMobile.Name = "lblMobile";
-            this.lblMobile.Size = new System.Drawing.Size(82, 15);
+            this.lblMobile.Size = new System.Drawing.Size(65, 12);
             this.lblMobile.TabIndex = 8;
             this.lblMobile.Text = "핸드폰번호";
             // 
@@ -160,18 +159,18 @@
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(94, 80);
+            this.txtName.Location = new System.Drawing.Point(82, 64);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(325, 25);
-            this.txtName.TabIndex = 9;
+            this.txtName.Size = new System.Drawing.Size(285, 21);
+            this.txtName.TabIndex = 5;
             // 
             // lblTel
             // 
             this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(13, 115);
+            this.lblTel.Location = new System.Drawing.Point(11, 92);
             this.lblTel.Name = "lblTel";
-            this.lblTel.Size = new System.Drawing.Size(52, 15);
+            this.lblTel.Size = new System.Drawing.Size(41, 12);
             this.lblTel.TabIndex = 8;
             this.lblTel.Text = "연락처";
             // 
@@ -179,11 +178,11 @@
             // 
             this.txtBizName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBizName.Location = new System.Drawing.Point(94, 18);
+            this.txtBizName.Location = new System.Drawing.Point(82, 14);
             this.txtBizName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBizName.Name = "txtBizName";
-            this.txtBizName.Size = new System.Drawing.Size(325, 25);
-            this.txtBizName.TabIndex = 9;
+            this.txtBizName.Size = new System.Drawing.Size(285, 21);
+            this.txtBizName.TabIndex = 3;
             // 
             // pnlTop
             // 
@@ -196,15 +195,15 @@
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1152, 56);
+            this.pnlTop.Size = new System.Drawing.Size(1008, 45);
             this.pnlTop.TabIndex = 6;
             // 
             // txtQuery
             // 
-            this.txtQuery.Location = new System.Drawing.Point(120, 18);
+            this.txtQuery.Location = new System.Drawing.Point(105, 14);
             this.txtQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuery.Name = "txtQuery";
-            this.txtQuery.Size = new System.Drawing.Size(244, 25);
+            this.txtQuery.Size = new System.Drawing.Size(214, 21);
             this.txtQuery.TabIndex = 6;
             this.txtQuery.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQuery_KeyDown);
             // 
@@ -213,18 +212,18 @@
             this.cboQuery.FormattingEnabled = true;
             this.cboQuery.Items.AddRange(new object[] {
             "상품명"});
-            this.cboQuery.Location = new System.Drawing.Point(11, 18);
+            this.cboQuery.Location = new System.Drawing.Point(10, 14);
             this.cboQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboQuery.Name = "cboQuery";
-            this.cboQuery.Size = new System.Drawing.Size(102, 23);
+            this.cboQuery.Size = new System.Drawing.Size(90, 20);
             this.cboQuery.TabIndex = 5;
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(371, 14);
+            this.btnSelect.Location = new System.Drawing.Point(325, 11);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(85, 32);
+            this.btnSelect.Size = new System.Drawing.Size(74, 26);
             this.btnSelect.TabIndex = 4;
             this.btnSelect.Text = "조회";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -233,13 +232,14 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(1059, 14);
+            this.btnExit.Location = new System.Drawing.Point(927, 11);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(85, 32);
+            this.btnExit.Size = new System.Drawing.Size(74, 26);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "종료";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // companyGrid
             // 
@@ -255,13 +255,12 @@
             this.Col7,
             this.Col8});
             this.companyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.companyGrid.Location = new System.Drawing.Point(0, 56);
-            this.companyGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.companyGrid.Location = new System.Drawing.Point(0, 45);
             this.companyGrid.Name = "companyGrid";
             this.companyGrid.ReadOnly = true;
             this.companyGrid.RowTemplate.Height = 23;
             this.companyGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.companyGrid.Size = new System.Drawing.Size(719, 570);
+            this.companyGrid.Size = new System.Drawing.Size(629, 456);
             this.companyGrid.TabIndex = 7;
             this.companyGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.companyGrid_CellClick);
             // 
@@ -325,36 +324,36 @@
             // 
             this.txtBizNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBizNo.Location = new System.Drawing.Point(94, 49);
+            this.txtBizNo.Location = new System.Drawing.Point(82, 39);
             this.txtBizNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBizNo.Name = "txtBizNo";
-            this.txtBizNo.Size = new System.Drawing.Size(325, 25);
-            this.txtBizNo.TabIndex = 9;
+            this.txtBizNo.Size = new System.Drawing.Size(285, 21);
+            this.txtBizNo.TabIndex = 4;
             // 
             // lblBizName
             // 
             this.lblBizName.AutoSize = true;
-            this.lblBizName.Location = new System.Drawing.Point(13, 21);
+            this.lblBizName.Location = new System.Drawing.Point(11, 17);
             this.lblBizName.Name = "lblBizName";
-            this.lblBizName.Size = new System.Drawing.Size(67, 15);
+            this.lblBizName.Size = new System.Drawing.Size(53, 12);
             this.lblBizName.TabIndex = 8;
             this.lblBizName.Text = "거래처명";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(13, 84);
+            this.lblName.Location = new System.Drawing.Point(11, 67);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(52, 15);
+            this.lblName.Size = new System.Drawing.Size(41, 12);
             this.lblName.TabIndex = 8;
             this.lblName.Text = "담당자";
             // 
             // lblBizNo
             // 
             this.lblBizNo.AutoSize = true;
-            this.lblBizNo.Location = new System.Drawing.Point(13, 52);
+            this.lblBizNo.Location = new System.Drawing.Point(11, 42);
             this.lblBizNo.Name = "lblBizNo";
-            this.lblBizNo.Size = new System.Drawing.Size(82, 15);
+            this.lblBizNo.Size = new System.Drawing.Size(65, 12);
             this.lblBizNo.TabIndex = 8;
             this.lblBizNo.Text = "사업자번호";
             // 
@@ -383,98 +382,96 @@
             this.panel1.Controls.Add(this.lblMobile);
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(719, 56);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Location = new System.Drawing.Point(629, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(433, 570);
+            this.panel1.Size = new System.Drawing.Size(379, 456);
             this.panel1.TabIndex = 8;
             // 
             // txtHomepage
             // 
             this.txtHomepage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHomepage.Location = new System.Drawing.Point(94, 268);
+            this.txtHomepage.Location = new System.Drawing.Point(82, 214);
             this.txtHomepage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHomepage.Name = "txtHomepage";
-            this.txtHomepage.Size = new System.Drawing.Size(325, 25);
-            this.txtHomepage.TabIndex = 9;
+            this.txtHomepage.Size = new System.Drawing.Size(285, 21);
+            this.txtHomepage.TabIndex = 11;
             // 
             // txtBankName
             // 
             this.txtBankName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBankName.Location = new System.Drawing.Point(94, 236);
+            this.txtBankName.Location = new System.Drawing.Point(82, 189);
             this.txtBankName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBankName.Name = "txtBankName";
-            this.txtBankName.Size = new System.Drawing.Size(325, 25);
-            this.txtBankName.TabIndex = 9;
+            this.txtBankName.Size = new System.Drawing.Size(285, 21);
+            this.txtBankName.TabIndex = 10;
             // 
             // txtBankNumber
             // 
             this.txtBankNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBankNumber.Location = new System.Drawing.Point(94, 205);
+            this.txtBankNumber.Location = new System.Drawing.Point(82, 164);
             this.txtBankNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBankNumber.Name = "txtBankNumber";
-            this.txtBankNumber.Size = new System.Drawing.Size(325, 25);
+            this.txtBankNumber.Size = new System.Drawing.Size(285, 21);
             this.txtBankNumber.TabIndex = 9;
             // 
             // txtBank
             // 
             this.txtBank.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBank.Location = new System.Drawing.Point(94, 174);
+            this.txtBank.Location = new System.Drawing.Point(82, 139);
             this.txtBank.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBank.Name = "txtBank";
-            this.txtBank.Size = new System.Drawing.Size(325, 25);
-            this.txtBank.TabIndex = 9;
+            this.txtBank.Size = new System.Drawing.Size(285, 21);
+            this.txtBank.TabIndex = 8;
             // 
             // lblHomepage
             // 
             this.lblHomepage.AutoSize = true;
-            this.lblHomepage.Location = new System.Drawing.Point(13, 271);
+            this.lblHomepage.Location = new System.Drawing.Point(11, 217);
             this.lblHomepage.Name = "lblHomepage";
-            this.lblHomepage.Size = new System.Drawing.Size(67, 15);
+            this.lblHomepage.Size = new System.Drawing.Size(53, 12);
             this.lblHomepage.TabIndex = 8;
             this.lblHomepage.Text = "홈페이지";
             // 
             // lblBankName
             // 
             this.lblBankName.AutoSize = true;
-            this.lblBankName.Location = new System.Drawing.Point(13, 240);
+            this.lblBankName.Location = new System.Drawing.Point(11, 192);
             this.lblBankName.Name = "lblBankName";
-            this.lblBankName.Size = new System.Drawing.Size(52, 15);
+            this.lblBankName.Size = new System.Drawing.Size(41, 12);
             this.lblBankName.TabIndex = 8;
             this.lblBankName.Text = "예금주";
             // 
             // lblBankNumber
             // 
             this.lblBankNumber.AutoSize = true;
-            this.lblBankNumber.Location = new System.Drawing.Point(13, 209);
+            this.lblBankNumber.Location = new System.Drawing.Point(11, 167);
             this.lblBankNumber.Name = "lblBankNumber";
-            this.lblBankNumber.Size = new System.Drawing.Size(67, 15);
+            this.lblBankNumber.Size = new System.Drawing.Size(53, 12);
             this.lblBankNumber.TabIndex = 8;
             this.lblBankNumber.Text = "계좌번호";
             // 
             // lblBank
             // 
             this.lblBank.AutoSize = true;
-            this.lblBank.Location = new System.Drawing.Point(13, 178);
+            this.lblBank.Location = new System.Drawing.Point(11, 142);
             this.lblBank.Name = "lblBank";
-            this.lblBank.Size = new System.Drawing.Size(67, 15);
+            this.lblBank.Size = new System.Drawing.Size(53, 12);
             this.lblBank.TabIndex = 8;
             this.lblBank.Text = "거래은행";
             // 
             // FrmCompanyList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 626);
+            this.ClientSize = new System.Drawing.Size(1008, 501);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.companyGrid);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTop);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmCompanyList";
             this.Text = "거래처관리";
             this.Load += new System.EventHandler(this.FrmCompany_Load);

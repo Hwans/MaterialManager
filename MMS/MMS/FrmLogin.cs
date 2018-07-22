@@ -66,31 +66,28 @@ namespace MMS
             }
 
             //check user name is correct 
-            else
+            DataSet oDs = SelectData(id);
+            if (oDs.Tables[0].Rows.Count > 0)
             {
-                DataSet oDs = SelectData(id);
-                if( oDs.Tables[0].Rows.Count > 0 )
+                DataRow oDr = oDs.Tables[0].Rows[0];
+                if (oDr["PASSWORD"].ToString() != pass)
                 {
-                    DataRow oDr = oDs.Tables[0].Rows[0];
-                    if (oDr["PASSWORD"].ToString() != pass)
-                    {
-                        MessageBox.Show("비밀번호가 맞지 않습니다.");
-                        txtPWD.Text = "";
-                        return false;
-                    }
-                    else
-                    {
-                        ClsCommon.strName = oDr["USER_NAME"].ToString();
-                        ClsCommon.strAdmin = oDr["ADMIN"].ToString();
-                        return true;
-                    }
+                    MessageBox.Show("비밀번호가 맞지 않습니다.");
+                    txtPWD.Text = "";
+                    return false;
                 }
                 else
                 {
-                    MessageBox.Show("사용자가 없습니다.");
-                    ClearTexts();
-                    return false;
+                    ClsCommon.strName = oDr["USER_NAME"].ToString();
+                    ClsCommon.strAdmin = oDr["ADMIN"].ToString();
+                    return true;
                 }
+            }
+            else
+            {
+                MessageBox.Show("사용자가 없습니다.");
+                ClearTexts();
+                return false;
             }
         }
 

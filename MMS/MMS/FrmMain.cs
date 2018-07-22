@@ -38,6 +38,9 @@ namespace MMS
                     toolStripSeparator1.Visible = false;
                     OrderItemMenuItem2.Visible = false;
 
+                    toolStripSeparator2.Visible = false;
+                    inputProductMenuItem2.Visible = false;
+
                     CompanyMenuItem.Visible = false;
                     SystemMenuItem.Visible = false;
                 }
@@ -77,6 +80,13 @@ namespace MMS
             FrmOrderInputList frmOrderInputList = new FrmOrderInputList();
             frmOrderInputList.MdiParent = this;
             frmOrderInputList.Show();
+        }
+
+        private void inputProductMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmOrderInputList2 frmOrderInputList2 = new FrmOrderInputList2();
+            frmOrderInputList2.MdiParent = this;
+            frmOrderInputList2.Show();
         }
 
         private void companyItemMenuItem_Click(object sender, EventArgs e)
@@ -131,7 +141,5 @@ namespace MMS
                 (tabForms.SelectedTab.Tag as Form).Select();
             }
         }
-
-
     }
 }

@@ -122,6 +122,12 @@
     <Compile Include="FrmOrderInputList.Designer.cs">
       <DependentUpon>FrmOrderInputList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOrderInputList2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderInputList2.Designer.cs">
+      <DependentUpon>FrmOrderInputList2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOrderList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrderInputList.resx">
       <DependentUpon>FrmOrderInputList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderInputList2.resx">
+      <DependentUpon>FrmOrderInputList2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrderList.resx">
       <DependentUpon>FrmOrderList.cs</DependentUpon>

@@ -30,7 +30,7 @@ namespace MMS
             setCompanyList();
 
             //
-
+            getProductMaxCode();
         }
 
         private void setCompanyList()
@@ -103,6 +103,32 @@ namespace MMS
             return ds;
         }
 
+        private void getProductMaxCode()
+        {
+            DataSet ds = null;
+            try
+            {
+                //
+                lblMaxCode.Text = "";
+
+                //
+                ds = new DataSet();
+                string sql = " SELECT MAX(CODE) AS MaxCode FROM TB_PRODUCT WHERE CODE NOT LIKE 'R%' ";
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds, "TB_PRODUCT");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow oRows = ds.Tables[0].Rows[0];
+                    lblMaxCode.Text = oRows[0].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
         private void btnSelect_Click(object sender, EventArgs e)
         {
             try
@@ -167,6 +193,7 @@ namespace MMS
                 {
                     sql += " WHERE CODE LIKE '" + pValue + "%' ";
                 }
+                sql += " ORDER BY TITLE ";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(ds, "TB_PRODUCT");
             }
@@ -329,6 +356,9 @@ namespace MMS
                         MessageBox.Show(ex.Message);
                     }
                 }
+
+                //
+                getProductMaxCode();
             }
         }
 
